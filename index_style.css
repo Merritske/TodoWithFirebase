@@ -195,9 +195,7 @@ height: 50px;
  border-color: #eee;
  border-width: 5px;
     }
-    /* .checked{
-        visibility: hidden;
-    } */
+  
     .new-todo-input{
 height:50px;
 flex-grow:1;
