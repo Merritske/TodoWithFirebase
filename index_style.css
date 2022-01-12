@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0;
     padding:0;
     box-sizing: border-box;
@@ -117,4 +117,150 @@ justify-content: center;
 }
 .all, .active, .completed{
     padding-left: 10px;
-}
+} */
+
+*{
+margin:0;
+     padding:0;
+box-sizing: border-box;
+    }
+    body{
+display:flex;
+justify-content: center;
+ font-family: Arial, Helvetica, sans-serif ;
+ background-color: rgb(238, 185, 225) ;
+    font-size:18px;
+    }
+    .background-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    height: 350px;
+    z-index:-1;
+    
+    }
+    .background-image>img{
+ width:100%;
+     height:100%;
+    object-fit:cover;
+ object-position: left ;
+    }
+    .container{
+ width:100%;
+ max-width:700px;
+    margin: 0 30px;
+    margin-top:100px;
+    
+    }
+    .header{
+ display:flex;
+     flex-direction: row ;
+ justify-content: space-between;
+     align-items: center; 
+    }
+    .title{
+ color: white;
+font-size: 10vw;
+ font-weight: bold;
+ padding:5px;
+ letter-spacing: 5px;
+    }
+    .theme{
+     padding-right: 15px;
+    }
+    .new-todo{
+ height: 70px;
+ width:100%;
+     margin-top: 50px;
+border-radius:6px;
+ background-color: #333333;
+    display: flex;
+    align-items: center;
+ justify-content:center;
+    
+    }
+    .check{
+ width:50px;
+height: 50px;
+    border: 2px solid #111;
+    margin-left: 10px;
+    border-radius: 50%;
+    opacity: 0.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .check:hover{
+ border-color: #eee;
+ border-width: 5px;
+    }
+    /* .checked{
+        visibility: hidden;
+    } */
+    .new-todo-input{
+height:50px;
+flex-grow:1;
+    display: flex;
+    align-items: center;
+    
+    }
+    .new-todo-input input{
+ width:100%;
+ padding: 10px 0px;
+ padding-left:10px;
+  font-size: 18px;
+   background-color: transparent;
+ border:none;
+outline: none;
+  color: hsl (200, 40%, 80%)
+    }
+  .todo-items-wrapper{
+ 
+  width:100%;
+  margin-top: 30px;
+background-color: #666 ;
+    }
+    .todo-items{
+border-radius: 10px;
+ padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+background-color: #333333;
+border-bottom: 1px solid #999;
+ 
+    }
+    .todoItems{
+display: flex;
+align-items: center;
+width: 100%;
+    }
+    .todo-items:hover{
+   box-shadow: 0 0 5px 2px #ccc;
+     height: 80px;
+    background-color: #666;
+     font-size: larger;
+    }
+    .todo-item{
+    padding-left: 15px;
+    }
+    button{
+    position: relative;
+    right: 10px;
+    width: 50px;
+    height: 35px;
+
+    }
+    .info{
+   background-color: #333;
+   height: 50px;
+display: flex;
+ align-items: flex-end;
+justify-content: space-between;
+ padding:10px; 
+    
+    }
+    .all, .active, .completed{
+     padding-left: 10px;
+    } 
