@@ -194,14 +194,12 @@ height: 50px;
     }
     .check:hover{
  border-color: #eee;
- border-width: 5px;
+ border-width: 5px; 
+
     }
-    /* .checked{
-        visibility: hidden;
-    } */
-  #checkje{
-visibility: hidden;
-  }
+
+
+
     .new-todo-input{
 height:50px;
 flex-grow:1;

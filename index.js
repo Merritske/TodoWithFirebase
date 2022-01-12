@@ -18,11 +18,13 @@ list.push(obj)
 let inputL = document.querySelector(".todo-items-wrapper")
 inputL.innerHTML += `<div class="todo-items">
 <div class="todoItems">
-<div class="check" onclick="checkM(this)">
+<div class="check">
 <div class="checked">
-<svg xmlns="http://www.w3.org/2000/svg" id="checkje" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
-</div>
-</div>
+<img
+    src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
+    width="25" alt="black check tick icon" />
+
+</div></div>
 <div class="todo-item">
 <p>${obj.todoN}</p>
 </div></div> <button onclick="remove(this)">X</button></div>`
@@ -42,12 +44,12 @@ let itemsLeft = document.querySelector(".itemsleft")
 }
 //checkmark laten zien als je erop klikt en active zetten
 
-function checkM (){
-  let checkmark = document.querySelectorAll(".checked")
-    console.log("hello")
-checkmark.style.backgroundColor = "red"
+// function checkM (){
+//   let checkmark = document.querySelectorAll(".checked")
+//     console.log("hello")
+// checkmark.classList.toggle("checkje")
 
-}
+// }
 
 
 // function checkM (){
@@ -58,9 +60,36 @@ checkmark.style.backgroundColor = "red"
 //         check.style.visibility ="hidden"
 //     }
 // }
-
-
-
+// function checkM() {
+//   var x = document.getElementsByClassName("checked");
+//   if (x.style.visibility === "hidden") {
+//     x.style.visibility = "visible";
+//   } else {
+//     x.style.visibility = "hidden";
+//   }
+// }
+// function checkM() {
+//   var element = document.getElementsByClassName("checked");
+//   element.innerHTML = `
+//   <img
+//       src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
+//       width="25" alt="black check tick icon" />
+  
+//  `
+// }
+// function checkM(){
+//   let x = document.querySelectorAll("img")
+//   x.style.display = "none"
+//   console.log("hello")
+// }
+// let x = document.querySelectorAll(".check")
+// x.addEventListener("click", function(){
+//   x.innerHTML += ` <img
+//      src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
+//       width="25" alt="black check tick icon" />
+//     `
+//     console.log("hello")
+// })
 //als checkmark + delete is completed
 
 //items left = bij remove
