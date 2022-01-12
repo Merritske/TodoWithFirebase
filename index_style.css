@@ -190,12 +190,18 @@ height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+
     }
     .check:hover{
  border-color: #eee;
  border-width: 5px;
     }
-  
+    /* .checked{
+        visibility: hidden;
+    } */
+  #checkje{
+visibility: hidden;
+  }
     .new-todo-input{
 height:50px;
 flex-grow:1;

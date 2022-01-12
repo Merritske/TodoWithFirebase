@@ -16,11 +16,12 @@ todoN : todoN.value
 list.push(obj)
 
 let inputL = document.querySelector(".todo-items-wrapper")
-inputL.innerHTML += `<div class="todo-items"><div class="todoItems">
+inputL.innerHTML += `<div class="todo-items">
+<div class="todoItems">
 <div class="check" onclick="checkM(this)">
 <div class="checked">
- 
- </div>
+<svg xmlns="http://www.w3.org/2000/svg" id="checkje" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
+</div>
 </div>
 <div class="todo-item">
 <p>${obj.todoN}</p>
@@ -41,14 +42,25 @@ let itemsLeft = document.querySelector(".itemsleft")
 }
 //checkmark laten zien als je erop klikt en active zetten
 
-function checkM (event){
-  
+function checkM (){
+  let checkmark = document.querySelectorAll(".checked")
     console.log("hello")
-let mark = document.querySelectorAll(".checked")
-mark.innerHTML = `<div class="checked">
-<svg xmlns="http://www.w3.org/2000/svg" width="11" height="9"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>
-</div> hello`
+checkmark.style.backgroundColor = "red"
+
 }
+
+
+// function checkM (){
+//     var check = document.getElementById("checkje")
+//     if(check.style.visibility == "hidden"){
+//         check.style.visibility = "visible"
+//     }else if(check.style.visibility == "hidden"){
+//         check.style.visibility ="hidden"
+//     }
+// }
+
+
+
 //als checkmark + delete is completed
 
 //items left = bij remove
