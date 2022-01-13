@@ -1,4 +1,4 @@
-
+let inputL = document.querySelector(".todo-items-wrapper")
 let input = document.querySelector(".new-todo-input")
 const [todoN] = document.querySelector(".input")
 let all = document.querySelector(".all")
@@ -15,7 +15,7 @@ todoN : todoN.value
 }
 list.push(obj)
 
-let inputL = document.querySelector(".todo-items-wrapper")
+
 inputL.innerHTML += `<div class="todo-items">
 <div class="todoItems">
 <div class="check">
@@ -32,9 +32,72 @@ inputL.innerHTML += `<div class="todo-items">
 count ++
 all.innerHTML = `${count} totaal`
 
+db.collection("TodoItems").add({
+    text: todoN.value ,
+    status: "active"
+})
 todoN.value =""
 
 }
+
+//data van storage nemen met voor elk object een uniek ID
+function getItems(){
+    db.collection("TodoItems").onSnapshot((snapshot)=>{
+let storeItems =[]
+       snapshot.docs.forEach((doc)=>{
+          
+//uniek ID maken
+ storeItems.push({
+     id: doc.id,
+     ...doc.data()
+ } )
+  
+ })
+ //lijst in HTML zetten die opgeslagen is
+ for(let i = 0; i< storeItems.length; i++){
+    inputL.innerHTML += `<div class="todo-items">
+ <div class="todoItems">
+ <div class="check">
+ <div data-id="${storeItems[i].id}" class="checked">
+ <img
+     src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
+    width="25" alt="black check tick icon" />
+ </div></div>
+ <div class="todo-item">
+<p>${storeItems[i].text}</p>
+ </div></div> <button onclick="remove(this)">X</button></div>`
+console.log(storeItems) 
+ }
+  actie()
+    })
+
+}
+
+getItems();
+
+// document.addEventListener("DOMContentLoaded", generateItems)
+// function generateItems(){
+
+
+// console.log("hello")
+
+// }
+
+function actie(){
+    let checkM = document.querySelectorAll(".checked")
+    console.log(checkM)
+    checkM.forEach((checkje)=>{
+        checkje.addEventListener("click", function(){
+        markCompleted(checkje.dataset.id)
+        })
+    })
+
+}
+function markCompleted(id){
+ // console.log(id)
+  let item = db.collection("TodoItems").doc(id)
+}
+
 //remove
 function remove(getEl){
  getEl.parentElement.remove()
@@ -93,7 +156,6 @@ let itemsLeft = document.querySelector(".itemsleft")
 //als checkmark + delete is completed
 
 //items left = bij remove
-
 
 
 
