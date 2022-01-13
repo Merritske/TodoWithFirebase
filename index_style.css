@@ -192,14 +192,14 @@ height: 50px;
     justify-content: center;
 
     }
-    .check:hover{
+    .check:hover, .checked{
  border-color: #eee;
  border-width: 5px; 
-background-color: aqua;
+ background-color: aqua;
     }
-/* .checked:hover{
-   background-color:red;
-} */
+
+   
+
 
 
     .new-todo-input{
