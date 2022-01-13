@@ -52,8 +52,8 @@ db.collection("TodoItems").onSnapshot((snapshot)=>{
     })
 
 })
-todoN.value =""
 
+todoN.value =""
 }
 switch (count) {
     case 5:
