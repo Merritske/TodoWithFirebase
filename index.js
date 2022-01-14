@@ -7,7 +7,7 @@ let itemsLeft = document.querySelector(".itemsleft")
 let count =0
 
 
-
+//https://www.tutorialspoint.com/firebase/firebase_quick_guide.htm
 
 
 
@@ -53,22 +53,22 @@ itemsLeft.innerHTML = `${count} items left`
 
 //KLOPT NIET MEER
 //data van storage nemen elke keer er iets verandert en voor elk object een uniek ID maken
-db.collection("TodoItems").get().then((querySnapshot) => {
-    
-    querySnapshot.forEach((doc) => {
+db.collection("TodoItems").onSnapshot((snapshot)=>{
+ 
+    snapshot.docs.forEach((doc)=>{
  let listItem =[]
 //     //uniek ID maken
    listItem.push({
          id: doc.id,
-         // ...doc.data()
+         ...doc.data()
     } )
 
  
     console.log(listItem.text)
 })
 
-
-
+db.collection.then(function getItems(){
+listItem = list;
 
         inputL.innerHTML += `<div class="todo-items">
     <div class="todoItems">
@@ -80,6 +80,12 @@ db.collection("TodoItems").get().then((querySnapshot) => {
      <div class="todo-item">
      <p>${list.text}</p>
     </div></div> <button onclick="remove(this)">X</button></div>`
+})
+
+    
+
+
+
 
 console.log(list)
     
@@ -97,28 +103,30 @@ console.log(list)
 
 //})
 //lijst in HTML zetten die opgeslagen is //werkt nog niet
-// // let body = document.querySelector("body")
-// //  body.addEventListener("load", generateItems)
-// // function generateItems(){
-// // 
-// //             inputL.innerHTML = `<div class="todo-items">
-// //          <div class="todoItems">
-// //          <div class="check ${list[i].status == "completed"? "checked" : "" }">
-// //          <div data-id="${list[i].id}" class="check-mark ">
-// //          <img
-// //              src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
-// //             width="25" alt="black check tick icon" />
-// //          </div></div>
-// //          <div class="todo-item">
-// //         <p>${list[i].text}</p>
-// //          </div></div> <button onclick="remove(this)">X</button></div>`
-// //        console.log("hello")
-// //          }
-// //       
+// let body = document.querySelector("body")
+//  body.addEventListener("load", generateItems())
+// db.collection.get(generateItems())
+    
+//     function generateItems(){
+
+//             inputL.innerHTML = `<div class="todo-items">
+//          <div class="todoItems">
+//          <div class="check ${list[i].status == "completed"? "checked" : "" }">
+//          <div data-id="${list[i].id}" class="check-mark ">
+//          <img
+//              src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
+//             width="25" alt="black check tick icon" />
+//          </div></div>
+//          <div class="todo-item">
+//         <p>${list[i].text}</p>
+//          </div></div> <button onclick="remove(this)">X</button></div>`
+//        console.log("hello")
+         
+      
         
         
-// //         }
-// 
+//         }
+
 
 
 
