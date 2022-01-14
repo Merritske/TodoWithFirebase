@@ -217,13 +217,13 @@ flex-grow:1;
    background-color: transparent;
  border:none;
 outline: none;
-  color: hsl (200, 40%, 80%)
+  color: #fff
     }
   .todo-items-wrapper{
  
   width:100%;
   margin-top: 30px;
-background-color: #666 ;
+background-color: #999 ;
     }
     .todo-items{
 border-radius: 10px;
@@ -231,7 +231,7 @@ border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-background-color: #333333;
+background-color: #666;
 border-bottom: 1px solid #999;
  
     }
@@ -240,15 +240,25 @@ display: flex;
 align-items: center;
 width: 100%;
     }
-    .todo-items:hover{
+    .todo-items:hover {
    box-shadow: 0 0 5px 2px #ccc;
-     height: 80px;
-    background-color: #666;
-     font-size: larger;
+    height: 80px;
+    background-color: #999;
+     font-size: x-large;
+  cursor: pointer;
+
     }
+    /* .todo-item:hover{
+   color: aqua;
+   
+    } */
     .todo-item{
     padding-left: 15px;
+    color:#eee;
+    width: 100%;
+    height: 100%;
     }
+
     button{
     position: relative;
     right: 10px;
@@ -263,7 +273,7 @@ display: flex;
  align-items: flex-end;
 justify-content: space-between;
  padding:10px; 
-    
+    color:#999
     }
     .all, .active, .completed{
      padding-left: 10px;

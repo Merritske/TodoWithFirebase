@@ -31,17 +31,17 @@ list.push(obj)
 //obj in firebase opslaan
 db.collection("TodoItems").add(obj)
 
-//invoegen in HTML
-inputL.innerHTML +=`<div class="todo-items">
-<div class="todoItems">
-<div class="check ">
-<div class="check-mark">
- <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
-    width="25" alt="black check tick icon" />
-</div></div>
- <div class="todo-item">
- <p>${obj.text}</p>
-</div></div> <button onclick="remove(this)">X</button></div>`
+//invoegen in HTML Als dit blijft staan wordt er telkens dubbele invoer gedaan als er een nieuw item toegevoegd wordt
+// inputL.innerHTML +=`<div class="todo-items">
+// <div class="todoItems">
+// <div class="check ">
+// <div class="check-mark">
+//  <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
+//     width="25" alt="black check tick icon" />
+// </div></div>
+//  <div class="todo-item">
+//  <p>${obj.text}</p>
+// </div></div> <button onclick="remove(this)">X</button></div>`
 
 todoN.value =""
 
@@ -51,171 +51,107 @@ itemsLeft.innerHTML = `${count} items left`
 }
 
 
-//KLOPT NIET MEER
 //data van storage nemen elke keer er iets verandert en voor elk object een uniek ID maken
 db.collection("TodoItems").onSnapshot((snapshot)=>{
- 
-    snapshot.docs.forEach((doc)=>{
+ inputL.innerHTML = ""
  let listItem =[]
-//     //uniek ID maken
+    snapshot.docs.forEach((doc)=>{
+ 
+    //uniek ID maken
    listItem.push({
          id: doc.id,
          ...doc.data()
     } )
+//console.log(doc.data())
 
- 
-    console.log(listItem.text)
-})
 
-db.collection.then(function getItems(){
-listItem = list;
-
-        inputL.innerHTML += `<div class="todo-items">
+inputL.innerHTML += `<div class="todo-items">
     <div class="todoItems">
-    <div class="check ${list.status == "completed"? "checked" : "" }">
-    <div data-id="${list.id}" class="check-mark ">
-     <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
-        width="25" alt="black check tick icon" />
-    </div></div>
-     <div class="todo-item">
-     <p>${list.text}</p>
+    <div class="check ${doc.data().status == "completed"? "checked" : "" }">
+     <div data-id="${doc.id}" class="check-mark ">
+      <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
+        width="25" alt="black check tick icon" />     </div></div>
+     <div class="todo-item">     <p>${doc.data().text}</p>
     </div></div> <button onclick="remove(this)">X</button></div>`
+
+    
+})
+console.log(listItem)
+
+
+
+
+
+actie()
+//nog specifiek id zoeken van de checkmark waar je opdrukt//in de for loop
+function actie(){
+    let checkM = document.querySelectorAll(".check")
+  //  console.log(checkM)
+
+   checkM.forEach((checkje)=>{
+        checkje.addEventListener("click", function(){
+      //  markCompleted(checkje.id)
+     
+      for(let x = 0; x<listItem.length; x++){
+          if(listItem[x].status === "active"){
+            //  db.collection("TodoItems").update({status: "completed"})
+            console.log("almost")
+          }else{
+              console.log("koekoek")
+          }
+      }
+    })
+})
+}
+
 })
 
-    
-
-
-
-
-console.log(list)
-    
-        
-   
-
-
-
-
-})
-
-
-
-
-
-//})
-//lijst in HTML zetten die opgeslagen is //werkt nog niet
-// let body = document.querySelector("body")
-//  body.addEventListener("load", generateItems())
-// db.collection.get(generateItems())
-    
-//     function generateItems(){
-
-//             inputL.innerHTML = `<div class="todo-items">
-//          <div class="todoItems">
-//          <div class="check ${list[i].status == "completed"? "checked" : "" }">
-//          <div data-id="${list[i].id}" class="check-mark ">
-//          <img
-//              src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
-//             width="25" alt="black check tick icon" />
-//          </div></div>
-//          <div class="todo-item">
-//         <p>${list[i].text}</p>
-//          </div></div> <button onclick="remove(this)">X</button></div>`
-//        console.log("hello")
-         
+// console.log(listItem)
+//   item.get().then(function(doc){
+// if(doc.exists){ 
       
-        
-        
-//         }
-
-
-
-
-
-
-
-
-// 
-//
-
-
-
-
-// 
-// }
-
-// 
-   
-//      //actie()
-   
+// let status = doc.data().status;
+// if(status == "active"){
+//     item.update({
+// status : "completed"
 //     })
-//  // list = storeItems 
-//       console.log(list)
+
+//     }else if(status == "completed"){
+//         item.update({
+//             status: "active"
+//         })
+//     }
+// }
+//   })
+//       console.log("hello")
+//         })
+//   })
+
+//  }
 
 // })
 
 
+//CHECKMARK + STATUS WIJZIGEN IN FIREBASE
+
+    // let checkM = document.querySelectorAll(".check")
+    // checkM.addEventListener("click", actie(this))
+    // function actie(this) {
+    //   db.collection.update({
+    //     status : "completed"
+    // })
+    // }
 
 
 
-// switch (count) {
-//     case 5:
-//         alert("lots of things needs to be done")
-//         break;
-//     case 10:
-//         alert("lots of things needs to be done, you better get started")
-//         break;
-//     case 15:
-//         alert("what the f****k")
-//         break;
-// }
+// // //checkmark laten zien als je erop klikt en active zetten
+// function markCompleted(){
+ 
+//   let item = db.collection("TodoItems").doc.data(id)
 
-
-        
-    //actie()
-// // console.log("hello")
-
-// // }
-// //  for(let i = 0; i< storeItems.length; i++){
-// //     inputL.innerHTML += `<div class="todo-items">
-// //  <div class="todoItems">
-// //  <div class="check ${storeItems[i].status == "completed"? "checked" : "" }">
-// //  <div data-id="${storeItems[i].id}" class="check-mark ">
-// //  <img
-// //      src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
-// //     width="25" alt="black check tick icon" />
-// //  </div></div>
-// //  <div class="todo-item">
-// // <p>${storeItems[i].text}</p>
-// //  </div></div> <button onclick="remove(this)">X</button></div>`
-// //  //console.log(storeItems)
-// //  }
-//   //actie()
-// //     })
-
-// // }
-
-// //getItems();
-
-
-
-// function actie(){
-//     let checkM = document.querySelectorAll(".check-mark")
-//   //  console.log(checkM)
-//     checkM.forEach((checkje)=>{
-//         checkje.addEventListener("click", function(){
-//         markCompleted(checkje.dataset.id)
-        
-//         })
-//     })
-
-// }
-// //checkmark laten zien als je erop klikt en active zetten
-// function markCompleted(id){
-//  // console.log(id)
-//   let item = db.collection("TodoItems").doc(id)
 //   item.get().then(function(doc){
 // if(doc.exists){ 
-//       // console.log(doc.data())
+      
 // let status = doc.data().status;
 // if(status == "active"){
 //     item.update({
@@ -239,4 +175,17 @@ console.log(list)
 // //items left = bij remove
 
 
+
+//alert zetten bij 5, 10 en 15 items todo
+// switch (count) {
+//     case 5:
+//         alert("lots of things needs to be done")
+//         break;
+//     case 10:
+//         alert("lots of things needs to be done, you better get started")
+//         break;
+//     case 15:
+//         alert("what the f****k")
+//         break;
+// }
 
