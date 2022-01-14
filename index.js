@@ -54,7 +54,7 @@ itemsLeft.innerHTML = `${count} items left`
 //data van storage nemen elke keer er iets verandert en voor elk object een uniek ID maken
 db.collection("TodoItems").onSnapshot((snapshot)=>{
  inputL.innerHTML = ""
- let listItem =[]
+ listItem =[]
     snapshot.docs.forEach((doc)=>{
  
     //uniek ID maken
@@ -74,7 +74,6 @@ inputL.innerHTML += `<div class="todo-items">
      <div class="todo-item">     <p>${doc.data().text}</p>
     </div></div> <button onclick="remove(this)">X</button></div>`
 
-    
 })
 console.log(listItem)
 
@@ -83,29 +82,39 @@ console.log(listItem)
 
 
 actie()
+
+
+
+})
 //nog specifiek id zoeken van de checkmark waar je opdrukt//in de for loop
 function actie(){
     let checkM = document.querySelectorAll(".check")
-  //  console.log(checkM)
+  // console.log(checkM)
 
    checkM.forEach((checkje)=>{
         checkje.addEventListener("click", function(){
       //  markCompleted(checkje.id)
-     
-      for(let x = 0; x<listItem.length; x++){
-          if(listItem[x].status === "active"){
-            //  db.collection("TodoItems").update({status: "completed"})
-            console.log("almost")
-          }else{
-              console.log("koekoek")
-          }
-      }
+console.log(this)
+
+//werkt niet
+let item = db.collection("TodoItems").doc
+  if(item.exists){
+let status = item.status;
+if(status == "active"){
+  item.update({
+    status : "completed"
+  })
+}else if(status == "completed") {
+item.update({
+  status : "active"
+})
+}
+  }
+
+
     })
 })
 }
-
-})
-
 // console.log(listItem)
 //   item.get().then(function(doc){
 // if(doc.exists){ 
