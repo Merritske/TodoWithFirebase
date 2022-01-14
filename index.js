@@ -68,7 +68,7 @@ db.collection("TodoItems").onSnapshot((snapshot)=>{
 inputL.innerHTML += `<div class="todo-items">
     <div class="todoItems">
     <div class="check ${doc.data().status == "completed"? "checked" : "" }">
-     <div data-id="${doc.id}" class="check-mark ">
+     <div id="${doc.id}" class="check-mark ">
       <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
         width="25" alt="black check tick icon" />     </div></div>
      <div class="todo-item">     <p>${doc.data().text}</p>
@@ -77,104 +77,34 @@ inputL.innerHTML += `<div class="todo-items">
 })
 console.log(listItem)
 
-
-
-
-
-actie()
-
-
-
-})
-//nog specifiek id zoeken van de checkmark waar je opdrukt//in de for loop
+ 
+//als je op checkmark drukt checkmark moet veranderen en in firebase moet completed
 function actie(){
-    let checkM = document.querySelectorAll(".check")
-  // console.log(checkM)
-
-   checkM.forEach((checkje)=>{
-        checkje.addEventListener("click", function(){
-      //  markCompleted(checkje.id)
-console.log(this)
-
-//werkt niet
-let item = db.collection("TodoItems").doc
-  if(item.exists){
-let status = item.status;
-if(status == "active"){
-  item.update({
+  let checkM = document.querySelectorAll(".check")
+ //console.log(checkM)
+  checkM.forEach((checkje)=>{
+      checkje.addEventListener("click", function(){
+let item = checkje.lastChild.id
+//console.log(item)
+//console.log(listItem[1].id)
+for(let z= 0; z< listItem.length ; z++){
+ if(listItem[z].id === item){
+  listItem[z].status = "completed"
+ console.log(listItem[z].status)
+ //nog in firebase zetten
+  db.collection("TodoItems").doc(item).update({
     status : "completed"
   })
-}else if(status == "completed") {
-item.update({
-  status : "active"
-})
+}else{
+  console.log("oepsie")
 }
-  }
-
-
-    })
-})
 }
-// console.log(listItem)
-//   item.get().then(function(doc){
-// if(doc.exists){ 
-      
-// let status = doc.data().status;
-// if(status == "active"){
-//     item.update({
-// status : "completed"
-//     })
 
-//     }else if(status == "completed"){
-//         item.update({
-//             status: "active"
-//         })
-//     }
-// }
-//   })
-//       console.log("hello")
-//         })
-//   })
-
-//  }
-
-// })
-
-
-//CHECKMARK + STATUS WIJZIGEN IN FIREBASE
-
-    // let checkM = document.querySelectorAll(".check")
-    // checkM.addEventListener("click", actie(this))
-    // function actie(this) {
-    //   db.collection.update({
-    //     status : "completed"
-    // })
-    // }
-
-
-
-// // //checkmark laten zien als je erop klikt en active zetten
-// function markCompleted(){
- 
-//   let item = db.collection("TodoItems").doc.data(id)
-
-//   item.get().then(function(doc){
-// if(doc.exists){ 
-      
-// let status = doc.data().status;
-// if(status == "active"){
-//     item.update({
-// status : "completed"
-//     })
-
-//     }else if(status == "completed"){
-//         item.update({
-//             status: "active"
-//         })
-//     }
-// }
-//   })
-// }
+})
+  })
+}
+actie()
+}) 
 
 
 
