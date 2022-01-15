@@ -278,3 +278,7 @@ justify-content: space-between;
     .all, .active, .completed{
      padding-left: 10px;
     } 
+    .all:hover, .active:hover, .completed:hover{
+        color : aqua;
+        cursor: pointer;
+    }

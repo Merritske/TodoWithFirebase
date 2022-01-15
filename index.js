@@ -12,10 +12,18 @@ let count = 0
 //https://www.tutorialspoint.com/firebase/firebase_quick_guide.htm
 
 
-//FOUTEN
 
-//bij delete ? firebase aanpassen !?
+//NOG DOEN
+//als op completed gedrukt wordt => alle completed in de lijst tonen
+//als op items left gedrukt wordt => alle items left in de lijst tonen
+//als op deletebtn gedrukt wordt en todo is niet 'completed' => alert : are you sure
+//delete All nog activeren => alert : are you sure
+//active => als op de todo-items geklikt wordt => active vernadert van kleur
+
 //LAYOUT
+//caroussel => slideshow automatisch
+//modal boxes instead of alert?
+
 
 
 input.addEventListener("submit", inputfunc)
