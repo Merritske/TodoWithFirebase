@@ -13,33 +13,67 @@ let count = 0
 
 
 //FOUTEN
-//bij toevoegen item "all" telt extra erbij bij "all" en bij "itemsleft"
+
 //bij remove "all" en "itemsleft" worden niet geupdate
 //nog nakijken of deleted item heeft status "active" of "completed" en dit getal updaten
 //bij delete ? firebase aanpassen !?
 //LAYOUT
 
-
 //TELT NIET AF bij remove
 //remove //nog updaten itemsleft + all//nakijken of deleted is "active of 'completed"status
-function remove(getEl){
-  getEl.parentElement.remove()
-  console.log(getEl)
-//   count --
-//  //  if(listItem.status == "active"){
-//  //    console.log("ok")
-//  //     countLeft --
-//  //  }
-//  //als status is "completed"
-//  countLeft = count - countCompleted
-
-// //als status is "active"
-// countLeft --
+// function remove(getEl){
+//     getEl.parentElement.remove()
+  
 
 
+  //  console.log(listItem)
+//console.log(inputL)
+
+//  for(let x= 0; x<listItem.length; x++){
+   
+//   if(listItem[x].status == "active"){
+//     console.log("ok")
+//      countLeft --
+//   }else if(listItem[x].status == "completed"){
+//   countCompleted--
+//      countLeft = count - countCompleted
+//      console.log("ajaj")
+      
+//   }
+   
+//  }
+// countCompleted.innerHTML = `${countCompleted} items completed`
 //   itemsLeft.innerHTML = `${countLeft} items left`
-//  all.innerHTML = `${count} totaal`
- }
+//   all.innerHTML = `${count} totaal`
+// }
+ 
+
+ //andere delete functie maken
+//  var button = document.querySelectorAll('.button');
+//  for (var i = 0; i < button.length; i++) {    
+//      button[i].addEventListener('click', ((j) => {         
+//      return function() {
+//        alert(j)
+//      }
+//    })(i))
+//  }
+//nog andere mogelijkheid
+// var nodes = document.getElementsByTagName('button');
+
+// for (var i = 0; i < nodes.length; i++) {
+//    nodes[i].addEventListener('click', function(index) {
+//       console.log('You clicked element index' + index);
+//    }.bind(this, i));
+// }
+//nod andere
+//document.addEventListener('click', function (e) {
+//   var target = e.target;
+//   var parent = target.parentNode;
+//   var index = [].indexOf.call(parent.children, target);
+//   console.log("index:", index);
+// });
+
+
 
 
 input.addEventListener("submit", inputfunc)
@@ -70,7 +104,7 @@ db.collection("TodoItems").add(obj)
 todoN.value =""
 
 count ++
-countLeft = count - countCompleted
+//countLeft = count - countCompleted
 // all.innerHTML = `${count} totaal`
 // itemsLeft.innerHTML = `${countLeft} items left`
 }
@@ -80,6 +114,9 @@ countLeft = count - countCompleted
 db.collection("TodoItems").onSnapshot((snapshot)=>{
  inputL.innerHTML = ""
  listItem =[]
+ count=0
+ countCompleted = 0
+ countLeft = 0
     snapshot.docs.forEach((doc)=>{
  
     //uniek ID maken
@@ -100,25 +137,25 @@ inputL.innerHTML += `<div class="todo-items">
 
 //console.log(doc.data().status)
 
-
  count ++
-all.innerHTML  = `${count} totaal`
+
 
 if(doc.data().status == "completed"){
   countCompleted ++
-  countLeft = count - countCompleted 
-itemsLeft.innerHTML = `${countLeft} items left`
+//   countLeft = count - countCompleted 
+// itemsLeft.innerHTML = `${countLeft} items left`
+
 }else{
   countLeft = count
-  itemsLeft.innerHTML = `${countLeft} items left`
+ // itemsLeft.innerHTML = `${countLeft} items left`
 }
 
 })
-console.log(listItem)
-
-
-
-
+//console.log(listItem)
+all.innerHTML  = `${count} totaal`
+countLeft = count - countCompleted 
+itemsLeft.innerHTML = `${countLeft} items left`
+itemsCompleted.innerHTML = `${countCompleted} items completed`
 
 
 
@@ -150,10 +187,6 @@ for(let z= 0; z< listItem.length ; z++){
   countLeft = 0
 }
 
-
-
-
-
 }
   countCompleted ++
  // console.log(countCompleted)
@@ -162,6 +195,13 @@ for(let z= 0; z< listItem.length ; z++){
 }
 actie()
 }) 
+
+  function remove (getEl){
+  getEl.parentElement.remove()
+  
+  console.log(listItem)//blijft 9
+console.log(inputL) //na elke delete een "div" weg
+}
 
 
 
