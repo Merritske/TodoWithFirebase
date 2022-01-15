@@ -2,7 +2,7 @@ let inputL = document.querySelector(".todo-items-wrapper")
 let input = document.querySelector(".new-todo-input")
 const [todoN] = document.querySelector(".input")
 let all = document.querySelector(".all")
-let list = []
+
 let itemsLeft = document.querySelector(".itemsleft")
 let itemsCompleted = document.querySelector(".completed")
 let countCompleted =0
@@ -14,66 +14,8 @@ let count = 0
 
 //FOUTEN
 
-//bij remove "all" en "itemsleft" worden niet geupdate
-//nog nakijken of deleted item heeft status "active" of "completed" en dit getal updaten
 //bij delete ? firebase aanpassen !?
 //LAYOUT
-
-//TELT NIET AF bij remove
-//remove //nog updaten itemsleft + all//nakijken of deleted is "active of 'completed"status
-// function remove(getEl){
-//     getEl.parentElement.remove()
-  
-
-
-  //  console.log(listItem)
-//console.log(inputL)
-
-//  for(let x= 0; x<listItem.length; x++){
-   
-//   if(listItem[x].status == "active"){
-//     console.log("ok")
-//      countLeft --
-//   }else if(listItem[x].status == "completed"){
-//   countCompleted--
-//      countLeft = count - countCompleted
-//      console.log("ajaj")
-      
-//   }
-   
-//  }
-// countCompleted.innerHTML = `${countCompleted} items completed`
-//   itemsLeft.innerHTML = `${countLeft} items left`
-//   all.innerHTML = `${count} totaal`
-// }
- 
-
- //andere delete functie maken
-//  var button = document.querySelectorAll('.button');
-//  for (var i = 0; i < button.length; i++) {    
-//      button[i].addEventListener('click', ((j) => {         
-//      return function() {
-//        alert(j)
-//      }
-//    })(i))
-//  }
-//nog andere mogelijkheid
-// var nodes = document.getElementsByTagName('button');
-
-// for (var i = 0; i < nodes.length; i++) {
-//    nodes[i].addEventListener('click', function(index) {
-//       console.log('You clicked element index' + index);
-//    }.bind(this, i));
-// }
-//nod andere
-//document.addEventListener('click', function (e) {
-//   var target = e.target;
-//   var parent = target.parentNode;
-//   var index = [].indexOf.call(parent.children, target);
-//   console.log("index:", index);
-// });
-
-
 
 
 input.addEventListener("submit", inputfunc)
@@ -84,8 +26,7 @@ let obj={
     text : todoN.value,
  status : "active"
 }
-//obj in lijst zetten
-list.push(obj)
+
 //obj in firebase opslaan
 db.collection("TodoItems").add(obj)
 
@@ -104,9 +45,18 @@ db.collection("TodoItems").add(obj)
 todoN.value =""
 
 count ++
-//countLeft = count - countCompleted
-// all.innerHTML = `${count} totaal`
-// itemsLeft.innerHTML = `${countLeft} items left`
+//alert zetten bij 5, 10 en 15 items todo
+switch (count) {
+    case 5:
+        alert("lots of things needs to be done")
+        break;
+    case 10:
+        alert("lots of things needs to be done, you better get started")
+        break;
+    case 15:
+        alert("what the f****k, this is too much for one day")
+        break;
+}
 }
 
 
@@ -117,6 +67,7 @@ db.collection("TodoItems").onSnapshot((snapshot)=>{
  count=0
  countCompleted = 0
  countLeft = 0
+
     snapshot.docs.forEach((doc)=>{
  
     //uniek ID maken
@@ -133,29 +84,61 @@ inputL.innerHTML += `<div class="todo-items">
       <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
         width="25" alt="black check tick icon" />     </div></div>
      <div class="todo-item">     <p>${doc.data().text}</p>
-    </div></div> <button onclick="remove(this)">X</button></div>`
+    </div></div> <button>X</button></div>`
 
 //console.log(doc.data().status)
 
  count ++
 
-
+//todoItems en hun status uploaden
 if(doc.data().status == "completed"){
   countCompleted ++
-//   countLeft = count - countCompleted 
-// itemsLeft.innerHTML = `${countLeft} items left`
-
 }else{
   countLeft = count
- // itemsLeft.innerHTML = `${countLeft} items left`
 }
-
 })
-//console.log(listItem)
-all.innerHTML  = `${count} totaal`
+
+//updaten bij het laden van de pagina
 countLeft = count - countCompleted 
 itemsLeft.innerHTML = `${countLeft} items left`
 itemsCompleted.innerHTML = `${countCompleted} items completed`
+all.innerHTML  = `${count} totaal`
+
+//als op deletebutton wordt gedrukt
+let delBtn = document.querySelectorAll("button")
+for(let i = 0; i< delBtn.length; i++){
+  delBtn[i].addEventListener("click", ((j)=>{
+return function (){
+  delBtn[i].parentElement.remove()
+
+
+  //delete item from firebase
+
+
+
+  //update totaal, items left, completed bij deleten van een rij
+   count --
+  if(listItem[i].status == "active"){
+   countLeft--
+     all.innerHTML  = `${count} totaal`
+     itemsLeft.innerHTML = `${countLeft} items left`
+itemsCompleted.innerHTML = `${countCompleted} items completed`
+  }else if(listItem[i].status == "completed"){
+    countCompleted --
+    all.innerHTML = `${count} totaal`
+itemsLeft.innerHTML = `${countLeft} items left`
+itemsCompleted.innerHTML = `${countCompleted} items completed`
+  }
+
+ listItem.splice(i, 0)
+console.log(listItem[i].id)
+let delIt = listItem[i].id
+
+ db.collection("TodoItems").doc(delIt).delete()
+
+}
+  })(i))
+}
 
 
 
@@ -186,7 +169,6 @@ for(let z= 0; z< listItem.length ; z++){
   count = 0
   countLeft = 0
 }
-
 }
   countCompleted ++
  // console.log(countCompleted)
@@ -195,33 +177,4 @@ for(let z= 0; z< listItem.length ; z++){
 }
 actie()
 }) 
-
-  function remove (getEl){
-  getEl.parentElement.remove()
-  
-  console.log(listItem)//blijft 9
-console.log(inputL) //na elke delete een "div" weg
-}
-
-
-
-
-// //als checkmark + delete is completed
-
-// //items left = bij remove
-
-
-
-//alert zetten bij 5, 10 en 15 items todo
-// switch (count) {
-//     case 5:
-//         alert("lots of things needs to be done")
-//         break;
-//     case 10:
-//         alert("lots of things needs to be done, you better get started")
-//         break;
-//     case 15:
-//         alert("what the f****k")
-//         break;
-// }
 
