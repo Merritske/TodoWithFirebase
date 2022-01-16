@@ -110,10 +110,12 @@ itemsLeft.innerHTML = `${countLeft} items left`
 itemsCompleted.innerHTML = `${countCompleted} items completed`
 all.innerHTML  = `${count} totaal`
 
+
+
 //als op deletebutton wordt gedrukt
 //werkt 1 keer maar de tweede keer delete die meerdere rijen, listItem update op één of andere manier?
 let delBtn = document.querySelectorAll(".delBtn")
-
+console.log(delBtn)
 for(let i = 0; i< delBtn.length; i++){
   
   delBtn[i].addEventListener("click", ((j)=>{
@@ -124,9 +126,9 @@ let clearfix = document.querySelector(".clearfix")
 
 return function (){
 
-console.log(listItem[j].id)
-
-  if(listItem[j].status == "active"){
+console.log(listItem[i].id)
+  console.log(delBtn[i].parentElement)
+  if(listItem[i].status == "active"){
    // Get the modal
 var modal = document.querySelector(".modal");
 modal.style.display = "block"
@@ -136,52 +138,57 @@ clearfix.addEventListener("click", function(event) {
   if (event.target == cancelBtn) {
     modal.style.display = "none";
   }else if(event.target == deleteBtn){
-  
-     delBtn[j].parentElement.remove()
+
+   delBtn[i].parentElement.remove()
    count --
       countLeft = count - countCompleted
      all.innerHTML  = `${count} totaal`
      itemsLeft.innerHTML = `${countLeft} items left`
 itemsCompleted.innerHTML = `${countCompleted} items completed`
 
-list = listItem.splice(j, 1)
-console.log(list)
 
-let delIt = list.id
-
+let delIt = listItem[i].id
+console.log(listItem[i].id)
 //delete item from firebase
 db.collection("TodoItems").doc(delIt).delete()
  modal.style.display = "none" 
- console.log(listItem)
 
+listItem.splice(i,1)
+console.log(listItem)
+  delBtn = []
+  listItem = []
+console.log(i)
   }
+
+
+   console.log(listItem)
   } )
 
 
-  }else if(listItem[j].status == "completed"){
-    delBtn[j].parentElement.remove()
+  }else if(listItem[i].status == "completed"){
+    delBtn[i].parentElement.remove()
     count--
     countCompleted --
     all.innerHTML = `${count} totaal`
 itemsLeft.innerHTML = `${countLeft} items left`
 itemsCompleted.innerHTML = `${countCompleted} items completed`
 
-//delBtn[i].parentElement.remove()
-listItem.splice(j, 1)
-
-let delIt = listItem[j].id
+let delIt = listItem[i].id
 //delete item from firebase
  db.collection("TodoItems").doc(delIt).delete()
+listItem.splice(i, 1)
+//console.log(listItem)
+
+delBtn = 0
 
   }
 
-console.log(listItem)
+
 
 
 }
-  })(i))
+  })())
 }
-
 
 
 
@@ -220,6 +227,6 @@ for(let z= 0; z< listItem.length ; z++){
 })
   })
 }
+
 actie()
 }) 
-

@@ -287,14 +287,22 @@ justify-content: space-between;
 .cancelbtn, .deletebtn {
     float: left;
     width: 50%;
+    height: 40px;
+    margin-top: 35px;
+    font-size: 25px;
+    border-radius: 10px;
   }
-  
+  .deletebtn:hover{
+    background-color: #f00;
+  }
   /* Add a color to the cancel button */
   .cancelbtn {
     background-color: #ccc;
     color: black;
   }
-  
+  .cancelbtn:hover{
+    background-color: #0f0;
+  } 
   /* Add a color to the delete button */
   .deletebtn {
     background-color: #f44336;
@@ -302,8 +310,10 @@ justify-content: space-between;
   
   /* Add padding and center-align text to the container */
   .container {
-    padding: 16px;
+    margin: auto;
     text-align: center;
+    padding: 20px;
+    height: 200px;
   }
   
   /* The Modal (background) */
@@ -312,20 +322,19 @@ justify-content: space-between;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
-    top: 0;
+    top: 50px;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: #474e5d;
-    padding-top: 50px;
+    padding-top: 100px;
   }
   .modal-show{
       display:block;
   }
   /* Modal Content/Box */
   .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    background-color: #3f9;
+    margin: auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
   }
@@ -339,8 +348,8 @@ justify-content: space-between;
   /* The Modal Close Button (x) */
   .close {
     position: absolute;
-    right: 35px;
-    top: 15px;
+    right: 45px;
+    top: 25px;
     font-size: 40px;
     font-weight: bold;
     color: #f1f1f1;
