@@ -92,7 +92,7 @@ inputL.innerHTML += `<div class="todo-items">
       <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
         width="25" alt="black check tick icon" />     </div></div>
      <div class="todo-item">     <p>${doc.data().text}</p>
-    </div></div> <button>X</button></div>`
+    </div></div> <button class="delBtn" >X</button></div>`
 
 //console.log(doc.data().status)
 
@@ -113,36 +113,60 @@ itemsCompleted.innerHTML = `${countCompleted} items completed`
 all.innerHTML  = `${count} totaal`
 
 //als op deletebutton wordt gedrukt
-let delBtn = document.querySelectorAll("button")
+let delBtn = document.querySelectorAll(".delBtn")
 for(let i = 0; i< delBtn.length; i++){
   delBtn[i].addEventListener("click", ((j)=>{
+
+
 return function (){
-  delBtn[i].parentElement.remove()
+console.log(listItem[i].status)
 
-
-  //delete item from firebase
-
-
-
-  //update totaal, items left, completed bij deleten van een rij
-   count --
   if(listItem[i].status == "active"){
-   countLeft--
+   // Get the modal
+var modal = document.querySelector(".modal");
+modal.style.display = "block"
+
+let cancelBtn = document.querySelector(".cancelbtn")
+let deleteBtn = document.querySelector(".deletebtn")
+let clearfix = document.querySelector(".clearfix")
+clearfix.addEventListener("click", function(event) {
+  if (event.target == cancelBtn) {
+    modal.style.display = "none";
+  }else if(event.target == deleteBtn){
+      delBtn[i].parentElement.remove()
+   count --
+      countLeft--
      all.innerHTML  = `${count} totaal`
      itemsLeft.innerHTML = `${countLeft} items left`
 itemsCompleted.innerHTML = `${countCompleted} items completed`
+listItem.splice(i, 0)
+//console.log(listItem[i].id)
+let delIt = listItem[i].id
+//delete item from firebase
+ db.collection("TodoItems").doc(delIt).delete()
+ modal.style.display = "none" 
+  }
+  } )
+
+
   }else if(listItem[i].status == "completed"){
+    delBtn[i].parentElement.remove()
+    count--
     countCompleted --
     all.innerHTML = `${count} totaal`
 itemsLeft.innerHTML = `${countLeft} items left`
 itemsCompleted.innerHTML = `${countCompleted} items completed`
-  }
 
- listItem.splice(i, 0)
-console.log(listItem[i].id)
+
+listItem.splice(i, 0)
+
 let delIt = listItem[i].id
-
+//delete item from firebase
  db.collection("TodoItems").doc(delIt).delete()
+
+  }
+//console.log(listItem[i].status)
+
 
 }
   })(i))
@@ -165,15 +189,18 @@ let item = checkje.lastChild.id
 //console.log(listItem[1].id)
 for(let z= 0; z< listItem.length ; z++){
  if(listItem[z].id === item){
-   listItem[z].status = "completed"
- 
- //console.log(listItem[z].status)
- //nog in firebase zetten
-  db.collection("TodoItems").doc(item).update({
+  if(listItem[z].status == "completed"){
+    listItem[z].status = "active";
+    db.collection("TodoItems").doc(item).update({
+      status : "active"
+    });
+  }else if( listItem[z].status == "active"){
+    listItem[z].status = "completed";
+      db.collection("TodoItems").doc(item).update({
     status : "completed"
   });
-   
-}else{
+  }
+ }else{
   count = 0
   countLeft = 0
 }
