@@ -15,7 +15,7 @@ let count = 0
 
 //NOG DOEN
 
-//delete All nog activeren => alert : are you sure
+//delete All nog activeren => modal box:alert : are you sure
 //active werkt nog niet todo-items + check-mark zijn nog in 1 deel en als de checkmark aangeklikt w, wordt active ook geactiveerd!!!!!
 //als delete active nog active afzetten
 
