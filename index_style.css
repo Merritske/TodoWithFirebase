@@ -276,14 +276,17 @@ justify-content: space-between;
  padding:10px; 
     color:#999
     }
-    .all, .active, .completed{
+    .all, .actief, .completed{
      padding-left: 10px;
     } 
-    .all:hover, .active:hover, .completed:hover{
+    .all:hover, .actief:hover, .completed:hover, .itemsleft:hover{
         color : aqua;
         cursor: pointer;
     }
-
+.deleteAll:hover{
+  color: red;
+  cursor: pointer;
+}
     /* Float cancel and delete buttons and add an equal width */
 .cancelbtn, .deletebtn {
     float: left;
