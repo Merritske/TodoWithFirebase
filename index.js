@@ -15,15 +15,18 @@ let count = 0
 
 //NOG DOEN
 
-
-
 //delete All nog activeren => alert : are you sure
-//active => als op de todo-items geklikt wordt => active vernadert van kleur
+//active werkt nog niet todo-items + check-mark zijn nog in 1 deel en als de checkmark aangeklikt w, wordt active ook geactiveerd!!!!!
+//als delete active nog active afzetten
+
 
 //LAYOUT
 //kleuren
 //deletebtn
 //modalvenster nog layouten - kleuren - grootte
+
+
+
 
 //automatische slideshow bovenaan
 var slideIndex = 0;
@@ -112,7 +115,7 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
      <div id="${doc.id}" class="check-mark ">
       <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
         width="25" alt="black check tick icon" />     </div></div>
-     <div class="todo-item">     <p>${doc.data().text}</p>
+     <div class="todo-item">     <p id="${doc.id}">${doc.data().text}</p>
     </div></div> <button class="delBtn" >X</button></div>`
 
     //console.log(doc.data().status)
@@ -237,17 +240,36 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
           }
         }
         countCompleted++
+     
         // console.log(countCompleted)
       })
     })
   }
+  // switch(countCompleted){
+  // case 3:
+  //   alert("Time for a break")
+  //   break;
+  //   case 6:
+    
+  //     alert(`Still ${countLeft} items left to do`)
+  //     break;
+  //     case 9:
+  //       alert(`Don't give up, you are almost there, ${countLeft} items to do`)
+  //       break;
+  //       case count:
+  //         alert("Good job! You finished the whole list!")
+  // }
 
+  //als je op itemsleft of all of completed drukt tont het de items die left, all of completed zijn
   let itemsleft = document.querySelector(".itemsleft")
   let alles = document.querySelector(".all")
   let compleet = document.querySelector(".completed")
   let items = document.querySelectorAll(".todo-items")
 
   itemsleft.addEventListener("click", act => {
+ alles.style.color ="#999"
+    compleet.style.color = "#999"
+    itemsleft.style.color ="aqua"
    //zorgen dat je eerst terug je hele lijst krijgt
     for (let a = 0; a < items.length; a++) {
       items[a].style.display = "flex"
@@ -260,6 +282,9 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
   })
 
   alles.addEventListener("click", act => {
+    itemsleft.style.color ="#999"
+    alles.style.color ="aqua"
+    compleet.style.color = "#999"
     for (let y = 0; y < listItem.length; y++) {
       console.log(items[y])
       items[y].style.display = "flex"
@@ -267,6 +292,9 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
   })
 
   compleet.addEventListener("click", act => {
+    itemsleft.style.color ="#999"
+    alles.style.color ="#999"
+    compleet.style.color = "aqua"
     for (let a = 0; a < items.length; a++) {
       items[a].style.display = "flex"
     }
@@ -279,27 +307,43 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
     }
   })
 
+  //Als je op een item drukt =>actief
 let toDoAct = document.querySelectorAll(".todo-items")
-let toDotext = document.querySelectorAll("p")
+let actief = document.querySelector(".actief")
 toDoAct.forEach((actfoc)=>{
 actfoc.addEventListener("click", function(){
- 
+
   if(actfoc.style.backgroundColor == "aqua" ){
     actfoc.style.backgroundColor= "#666"
-   
-  }else if(actfoc.style.backgroundColor != "aqua"){
+    actfoc.firstChild.nextSibling.lastChild.style.color = "#eee"
+    actief.style.color = "#999"
+
+   }else if(actfoc.style.backgroundColor != "aqua"){
     actfoc.style.backgroundColor = "aqua"
-     //toDotext.style.color = "red"
-  }
+   actief.style.color = "aqua"
+    actfoc.firstChild.nextSibling.lastChild.style.color = "black"   
+      
+  console.log(actfoc.firstChild)
 
-  
- 
+   } 
+  // alert("you have to finish and check it first, before going to the next")
 })
 
-
 })
 
+//grote delete button om alles te deleten
+//met modal venster
+// let deleteAll = document.querySelector(".deleteAll")
+// deleteAll.addEventListener("click", delAl=>{
 
+//   for(let c = 0; c<toDoAct.length;c++){
+//     toDoAct[c].remove()
+
+//   }
+
+
+
+// })
 
 
 
