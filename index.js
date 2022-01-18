@@ -136,10 +136,10 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
 
 
 
-  //als op deletebutton wordt gedrukt
-  //werkt 1 keer maar de tweede keer delete die meerdere rijen, listItem update op één of andere manier?
+  //als op deletebutton wordt gedrukt "X"
+  
   let delBtn = document.querySelectorAll(".delBtn")
-  console.log(delBtn)
+  //console.log(delBtn)
   for (let i = 0; i < delBtn.length; i++) {
 
     delBtn[i].addEventListener("click", ((j) => {
@@ -185,7 +185,7 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
             }
 
 
-            console.log(listItem)
+           // console.log(listItem)
           })
 
 
@@ -215,36 +215,54 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
   function actie() {
     let checkM = document.querySelectorAll(".check")
     //console.log(checkM)
+
+ 
+
+
     checkM.forEach((checkje) => {
       checkje.addEventListener("click", function () {
-
+         
+              actief.style.color = "#999"
+         
         let item = checkje.lastChild.id
         //console.log(item)
         //console.log(listItem[1].id)
         for (let z = 0; z < listItem.length; z++) {
           if (listItem[z].id === item) {
-            if (listItem[z].status == "completed") {
+            if (listItem[z].status == "completed" )  {
               listItem[z].status = "active";
               db.collection("TodoItems").doc(item).update({
                 status: "active"
-              });
-            } else if (listItem[z].status == "active") {
+              }); 
+           
+            } else if (listItem[z].status == "active" ) {
               listItem[z].status = "completed";
+              toDoAct[z].style.backgroundColor = "blue"
               db.collection("TodoItems").doc(item).update({
                 status: "completed"
               });
-            }
+
+          
           } else {
             count = 0
-            countLeft = 0
+            countLeft = 0 
+        
+            
           }
+
+
+
         }
         countCompleted++
-     
+     console.log(toDoAct)
+
+
+
         // console.log(countCompleted)
-      })
+    }
     })
-  }
+  })
+}
   // switch(countCompleted){
   // case 3:
   //   alert("Time for a break")
@@ -286,7 +304,7 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
     alles.style.color ="aqua"
     compleet.style.color = "#999"
     for (let y = 0; y < listItem.length; y++) {
-      console.log(items[y])
+      //console.log(items[y])
       items[y].style.display = "flex"
     }
   })
@@ -300,56 +318,71 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
     }
     for (let y = 0; y < listItem.length; y++) {
       if (listItem[y].status != "completed") {
-        console.log(items[y])
+       // console.log(items[y])
         items[y].style.display = "none"
       }
 
     }
   })
-
+actie()
   //Als je op een item drukt =>actief
 let toDoAct = document.querySelectorAll(".todo-items")
 let actief = document.querySelector(".actief")
+
+
+let actiefItem = 0
 toDoAct.forEach((actfoc)=>{
-actfoc.addEventListener("click", function(){
+
+actfoc.firstChild.nextSibling.lastChild.addEventListener("click", function(){
+
 
   if(actfoc.style.backgroundColor == "aqua" ){
+   actiefItem --
+
     actfoc.style.backgroundColor= "#666"
     actfoc.firstChild.nextSibling.lastChild.style.color = "#eee"
-    actief.style.color = "#999"
+
 
    }else if(actfoc.style.backgroundColor != "aqua"){
-    actfoc.style.backgroundColor = "aqua"
+
+actiefItem ++
+   
+     actfoc.style.backgroundColor = "aqua"
    actief.style.color = "aqua"
-    actfoc.firstChild.nextSibling.lastChild.style.color = "black"   
-      
-  console.log(actfoc.firstChild)
-
+    actfoc.firstChild.nextSibling.lastChild.style.color = "black"
    } 
-  // alert("you have to finish and check it first, before going to the next")
+if(actiefItem == 0){
+   actief.style.color = "#999"
+}
+ 
+
+
 })
 
 })
+
 
 //grote delete button om alles te deleten
+//delete alleen nog maar als je er op klikt, nog niet in firebase
 //met modal venster
-// let deleteAll = document.querySelector(".deleteAll")
-// deleteAll.addEventListener("click", delAl=>{
+let deleteAll = document.querySelector(".deleteAll")
+deleteAll.addEventListener("click", delAl=>{
 
-//   for(let c = 0; c<toDoAct.length;c++){
-//     toDoAct[c].remove()
+  for(let c = 0; c<toDoAct.length;c++){
+    toDoAct[c].remove()
 
-//   }
-
-
-
-// })
+  }
 
 
 
+})
 
 
-  actie()
+
+
+
+
+ 
 })
 
 
