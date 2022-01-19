@@ -4,50 +4,73 @@ margin:0;
 box-sizing: border-box;
     }
     body{
-display:flex;
-justify-content: center;
  font-family: Arial, Helvetica, sans-serif ;
- background-color: #999 ;
-    font-size:18px;
+ background-color: antiquewhite;
+
+    font-size :30px;
     }
     .background-image{
     position: absolute;
-    top: 0;
+    top: 100px;
     left: 0;
     right:0;
-    height: 450px;
+    height: 480px;
     z-index:-1;
     overflow: hidden;
-    
+   
     }
-  
+  .topnav{
+    margin-top: 20px;
+    width: 500px;
+    height: 100px;
+    margin-left: 700px;
+    letter-spacing: 5px;
+  display:inline-flex;
+  justify-content: center;
+
+  }
+  .topnav>h1{
+    font-weight: 900;
+  }  
+    .title{
+ color: blue;
+ font-weight: bold;
+ padding-left: 35px;
+
+    }
     .container{
  width:100%;
  max-width:700px;
-    margin: 0 30px;
-    margin-top:100px;
-    
+  padding: 20px;
+    margin: auto;
+    margin-top:250px;
+      text-align: center;
     }
     .header{
- display:flex;
-     flex-direction: row ;
- justify-content: space-between;
-     align-items: center; 
+      width: 100%;
+      max-width: 500px;
+      position: absolute;
+   
     }
-    .title{
- color: white;
-font-size: 10vw;
- font-weight: bold;
- padding:5px;
- letter-spacing: 5px;
+ 
+    .dag{
+      width: 450px;
+      color : rgb(32, 32, 172);
+position: relative;
+left: 800px;
+top: 100px
     }
+/*nog beweging insteken*/
     .theme{
      padding-right: 15px;
+     position: relative;
+     left:900px;
+     
     }
     .new-todo{
  height: 70px;
  width:100%;
-     margin-top: 50px;
+     margin-top: 90px;
 border-radius:6px;
  background-color: #333333;
     display: flex;
@@ -67,15 +90,37 @@ height: 50px;
     justify-content: center;
 
     }
-    .check:hover, .checked{
+    .check:hover{
+border-color: #fff;
+background-color: blue;
+    } 
+    .checked{
  border-color: #eee;
- border-width: 5px; 
+ border-width: 8px; 
  background-color: aqua;
     }
-
+.input input{
+  font-size: 30px;
+}
    
-
-
+.delBtn{
+  position: relative;
+  right: 10px;
+  width: 50px;
+  height: 35px;
+border-radius:5px;
+  }
+  .delBtn:hover{
+    background-color: red;
+    cursor: pointer;
+    box-shadow:0 0 10px 5px whitesmoke;
+  }
+button{
+position: relative;
+right: 10px;
+width: 50px;
+height: 35px;
+}
 
     .new-todo-input{
 height:50px;
@@ -88,7 +133,6 @@ flex-grow:1;
  width:100%;
  padding: 10px 0px;
  padding-left:10px;
-  font-size: 18px;
    background-color: transparent;
  border:none;
 outline: none;
@@ -98,7 +142,7 @@ outline: none;
  
   width:100%;
   margin-top: 30px;
-background-color: #999 ;
+border-radius: 5px;
     }
     .todo-items{
 border-radius: 10px;
@@ -109,6 +153,7 @@ border-radius: 10px;
 background-color: #666;
 border-bottom: 1px solid #999;
  height: 70px;
+ font-size: 35px;
     }
     .todoItems{
 display: flex;
@@ -121,33 +166,23 @@ width: 100%;
    box-shadow: 0 0 5px 2px #ccc;
     height: 80px;
     background-color: #999;
-     font-size: x-large;
+     font-size: 40px;
   cursor: pointer;
 
     }
     
     .todo-item{
-    padding-left: 15px;
+    padding-left: 35px;
     color:#eee;
     width: 100%;
-      height: 100%;
+      height:70px; 
+ 
     }
 p{
-  height: 100%;
-  display:contents
+margin-top: 25px;
+
 }
-    .delBtn{
-    position: relative;
-    right: 10px;
-    width: 50px;
-    height: 35px;
-border-radius:5px;
-    }
-    .delBtn:hover{
-      background-color: red;
-      cursor: pointer;
-      box-shadow:0 0 10px 5px whitesmoke;
-    }
+   
     .info{
    background-color: #333;
    height: 50px;
@@ -165,17 +200,14 @@ justify-content: space-between;
         color : aqua;
         cursor: pointer;
     }
-.deleteAll:hover{
-  color: red;
-  cursor: pointer;
-}
+/*Modal*/
     /* Float cancel and delete buttons and add an equal width */
 .cancelbtn, .deletebtn {
-    float: left;
+   
     width: 50%;
-    height: 40px;
+    height: 50px;
     margin-top: 35px;
-    font-size: 25px;
+    font-size: 30px;
     border-radius: 10px;
   }
   .deletebtn:hover{
@@ -193,26 +225,15 @@ justify-content: space-between;
   .deletebtn {
     background-color: #f44336;
   }
-  
-  /* Add padding and center-align text to the container */
-  .container {
-    margin: auto;
-    text-align: center;
-    padding: 20px;
-    height: 200px;
-  }
+
   
   /* The Modal (background) */
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 0;
-    top: 50px;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    padding-top: 100px;
+    top: 250px;
+    width: 680px; /* Full width */
   }
   .modal-show{
       display:block;
@@ -220,15 +241,16 @@ justify-content: space-between;
   /* Modal Content/Box */
   .modal-content {
     background-color: #3f9;
-    margin: auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
+   margin: auto;
+    border: 10px solid #888;
+    border-radius: 5px;
     width: 80%; /* Could be more or less, depending on screen size */
-    
+    padding:20px
   }
   
   /* Style the horizontal ruler */
   hr {
-    border: 1px solid #f1f1f1;
+    border:1px solid #f1f1f1;
     margin-bottom: 25px;
   }
   
@@ -254,15 +276,7 @@ justify-content: space-between;
     clear: both;
     display: table;
   } 
-  
-  /* Change styles for cancel button and delete button on extra small screens */
-  @media screen and (max-width: 300px) {
-    .cancelbtn, .deletebtn {
-      width: 100%;
-    }
-  }
-  * {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
+
 .mySlides {display: none;}
 img {vertical-align: middle;}
 
@@ -271,6 +285,7 @@ img {vertical-align: middle;}
   max-width: 1000px;
   position: relative;
   margin: auto;
+  height: 500px;
 }
 
 /* Caption text */
@@ -293,16 +308,6 @@ img {vertical-align: middle;}
   top: 0;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
 
 .active {
   background-color: #717171;
@@ -326,7 +331,188 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
+@media only screen and (max-width: 600px) {
+    body{
+      font-family: Arial, Helvetica, sans-serif ;
+      background-color: #999 ;
+font-size: 18px
+}
+         
+         .background-image{
+         position: absolute;
+         top: 0;
+         left: 0;
+         right:0;
+         height: 450px;
+         z-index:-1;
+         overflow: hidden;
+         
+         }
+       .topnav{
+         margin-top: 20px;
+         width: 500px;
+         height: 100px;
+         margin-left: auto;
+         margin-right: auto;
+         letter-spacing: 5px;
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+       }
+       .topnav>h1{
+         font-weight: 900;
+       }  
+         .title{
+      color: blue;
+     font-size: 30px;
+      font-weight: bold;
+      padding-left: 25px;
+     
+         }
+         .container{
+      width:100%;
+      max-width:700px;
+       padding: 20px;
+         margin: auto;
+         margin-top:150px;
+           text-align: center;
+         }
+         .header{
+           width: 100%;
+         }
+           .name{
+       display:flex;
+          flex-direction: row ;
+     
+          align-items: center;  
+         
+         }
+         .dag{
+           width: 50%;
+           font-size: 24px;
+           color : blue;
+     margin:auto;
+         }
+     
+         .theme{
+          padding-right: 15px;
+         }
+         .new-todo{
+      height: 70px;
+      width:100%;
+          margin-top: 50px;
+     border-radius:6px;
+      background-color: #333333;
+         display: flex;
+         align-items: center;
+      justify-content:center;
+         
+         }
+         .check{
+      width:50px;
+     height: 50px;
+         border: 2px solid #111;
+         margin-left: 10px;
+         border-radius: 50%;
+         opacity: 0.2;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+     
+         }
+         .check:hover{
+     border-color: #fff;
+     background-color: blue;
+         } 
+         .checked{
+      border-color: #eee;
+      border-width: 8px; 
+      background-color: aqua;
+         }
+     
+        
+     
+     
+         .new-todo-input{
+     height:50px;
+     flex-grow:1;
+         display: flex;
+         align-items: center;
+         
+         }
+         .new-todo-input input{
+      width:100%;
+      padding: 10px 0px;
+      padding-left:10px;
+       font-size: 18px;
+        background-color: transparent;
+      border:none;
+     outline: none;
+       color: #fff
+         }
+       .todo-items-wrapper{
+      
+       width:100%;
+       margin-top: 30px;
+     background-color: #999 ;
+         }
+         .todo-items{
+     border-radius: 10px;
+      padding: 10px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+     background-color: #666;
+     border-bottom: 1px solid #999;
+      height: 70px;
+         }
+         .todoItems{
+     display: flex;
+     align-items: center;
+     width: 100%;
+     
+         }
+     
+         .todo-items:hover {
+        box-shadow: 0 0 5px 2px #ccc;
+         height: 80px;
+         background-color: #999;
+          font-size: x-large;
+       cursor: pointer;
+     
+         }
+         
+         .todo-item{
+         padding-left: 35px;
+         color:#eee;
+         width: 100%;
+           height:70px; 
+      
+         }
+     p{
+     margin-top: 25px;
+     
+     }
+        
+         .info{
+        background-color: #333;
+        height: 50px;
+     display: flex;
+      align-items: flex-end;
+     justify-content: space-between;
+      padding:5px; 
+      margin-top:10px;
+         color:#999
+         }
+         .all, .actief, .completed{
+          padding-left: 10px;
+         } 
+         .all:hover,  .completed:hover, .itemsleft:hover{
+             color : aqua;
+             cursor: pointer;
+         }
+    .cancelbtn, .deletebtn {
+      width: 100%;
+    
+  }
 }

@@ -11,13 +11,13 @@ let count = 0
 
 //https://www.tutorialspoint.com/firebase/firebase_quick_guide.htm
 
-
+//https://www.javascripttutorial.net/javascript-fetch-api/
 
 //NOG DOEN
 
 //delete All nog activeren => modal box:alert : are you sure
-//active werkt nog niet todo-items + check-mark zijn nog in 1 deel en als de checkmark aangeklikt w, wordt active ook geactiveerd!!!!!
-//als delete active nog active afzetten
+
+
 
 
 //LAYOUT
@@ -35,18 +35,16 @@ showSlides();
 function showSlides() {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
+
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
   slideIndex++;
   if (slideIndex > slides.length) { slideIndex = 1 }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
+  
   slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-  setTimeout(showSlides, 5000); // Change image every 2 seconds
+ 
+  setTimeout(showSlides, 5000); // Change image every 5 seconds
 }
 
 //input items
@@ -56,23 +54,12 @@ function inputfunc(e) {
   e.preventDefault()
   let obj = {
     text: todoN.value,
-    status: "active"
+    status: "active",
+    actief: "off"
   }
 
   //obj in firebase opslaan
   db.collection("TodoItems").add(obj)
-
-  //invoegen in HTML Als dit blijft staan wordt er telkens dubbele invoer gedaan als er een nieuw item toegevoegd wordt
-  // inputL.innerHTML +=`<div class="todo-items">
-  // <div class="todoItems">
-  // <div class="check ">
-  // <div class="check-mark">
-  //  <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png"
-  //     width="25" alt="black check tick icon" />
-  // </div></div>
-  //  <div class="todo-item">
-  //  <p>${obj.text}</p>
-  // </div></div> <button onclick="remove(this)">X</button></div>`
 
   todoN.value = ""
 
@@ -126,7 +113,78 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
     if (doc.data().status == "completed") {
       countCompleted++
     }
+// //actieve items uploaden //werkt nog niet
+
+// let toDoAct = document.querySelectorAll(".todo-item")
+// let actiefItem = 0
+
+//    if(doc.data().actief == "on"){   
+      
+//  toDoAct.parentElement.parentElement.style.backgroundColor== "aqua";
+//  toDoAct.style.color = "black"
+//   actiefItem ++
+//   }
+
   })
+  
+
+  //Als je op een item drukt =>actief //werkt nog niet zoals het moet
+  let toDoAct = document.querySelectorAll(".todo-item")
+let actief = document.querySelector(".actief")
+actiefItem =0
+  toDoAct.forEach((actfoc)=>{
+    actfoc.addEventListener("click", function(){
+
+
+//corresponderende listItem zoeken
+//for (let i = 0; i< listItem.length; i++){
+ //console.log(actfoc.id)
+  // if(listItem[i].id == actfoc.firstChild.id){
+     
+   //let actFocId = actfoc.firstChild.id
+    if(actfoc.parentElement.parentElement.style.backgroundColor == "aqua" ){
+    actfoc.parentElement.parentElement.style.backgroundColor= "#666"
+    actfoc.style.color = "#eee"
+   // actief.style.color = "#999"
+// db.collection("TodoItems").doc().update({
+//   actief: "off"
+// });
+  actiefItem --
+   if(actiefItem != "0"){
+   actief.style.color = "aqua"
+}else{
+  actief.style.color ="#999" 
+}
+ 
+   //console.log(actiefItem)
+   }else if(actfoc.parentElement.parentElement.style.backgroundColor != "aqua"){
+
+  
+    // console.log(doc.data(actfoc).actief)
+actiefItem ++
+//console.log(actiefItem)
+   
+     actfoc.parentElement.parentElement.style.backgroundColor = "aqua"
+   actief.style.color = "aqua"
+    actfoc.style.color = "black"
+
+  // db.collection("TodoItems").doc().update({
+  //     actief: "on"
+  //   }); 
+
+   } 
+
+
+  //}
+
+
+//}
+
+})
+
+})
+
+
 
   //updaten bij het laden van de pagina
   countLeft = count - countCompleted
@@ -134,81 +192,8 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
   itemsCompleted.innerHTML = `${countCompleted} items completed`
   all.innerHTML = `${count} totaal`
 
+     
 
-
-  //als op deletebutton wordt gedrukt "X"
-  
-  let delBtn = document.querySelectorAll(".delBtn")
-  //console.log(delBtn)
-  for (let i = 0; i < delBtn.length; i++) {
-
-    delBtn[i].addEventListener("click", ((j) => {
-
-      let cancelBtn = document.querySelector(".cancelbtn")
-      let deleteBtn = document.querySelector(".deletebtn")
-      let clearfix = document.querySelector(".clearfix")
-
-      return function () {
-
-        console.log(listItem[i].id)
-        console.log(delBtn[i].parentElement)
-        if (listItem[i].status == "active") {
-          // Get the modal
-          var modal = document.querySelector(".modal");
-          modal.style.display = "block"
-
-
-          clearfix.addEventListener("click", function (event) {
-            if (event.target == cancelBtn) {
-              modal.style.display = "none";
-            } else if (event.target == deleteBtn) {
-
-              delBtn[i].parentElement.remove()
-              count--
-              countLeft = count - countCompleted
-              all.innerHTML = `${count} totaal`
-              itemsLeft.innerHTML = `${countLeft} items left`
-              itemsCompleted.innerHTML = `${countCompleted} items completed`
-
-
-              let delIt = listItem[i].id
-              console.log(listItem[i].id)
-              //delete item from firebase
-              db.collection("TodoItems").doc(delIt).delete()
-              modal.style.display = "none"
-
-              listItem.splice(i, 1)
-              console.log(listItem)
-              delBtn = []
-              listItem = []
-              console.log(i)
-            }
-
-
-           // console.log(listItem)
-          })
-
-
-        } else if (listItem[i].status == "completed") {
-          delBtn[i].parentElement.remove()
-          count--
-          countCompleted--
-          all.innerHTML = `${count} totaal`
-          itemsLeft.innerHTML = `${countLeft} items left`
-          itemsCompleted.innerHTML = `${countCompleted} items completed`
-
-          let delIt = listItem[i].id
-          //delete item from firebase
-          db.collection("TodoItems").doc(delIt).delete()
-          listItem.splice(i, 1)
-          //console.log(listItem)
-
-          delBtn = 0
-
-        }
-      }
-    })())
-  }
 
 
   //als je op checkmark drukt checkmark moet veranderen en in firebase moet completed
@@ -221,9 +206,15 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
 
     checkM.forEach((checkje) => {
       checkje.addEventListener("click", function () {
-         
-              actief.style.color = "#999"
-         
+        
+      //   if(actiefItem != 0){
+      //     actief.style.color = "aqua"
+      //  }else{
+      //    actief.style.color ="#999" 
+      //  }
+         //
+            actief.style.color = "#999"
+         //
         let item = checkje.lastChild.id
         //console.log(item)
         //console.log(listItem[1].id)
@@ -254,7 +245,8 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
 
         }
         countCompleted++
-     console.log(toDoAct)
+   //  console.log(toDoAct) = nodelist
+     //console.log(listItem) = array
 
 
 
@@ -325,57 +317,81 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
     }
   })
 actie()
-  //Als je op een item drukt =>actief
-let toDoAct = document.querySelectorAll(".todo-items")
-let actief = document.querySelector(".actief")
-
-
-let actiefItem = 0
-toDoAct.forEach((actfoc)=>{
-
-actfoc.firstChild.nextSibling.lastChild.addEventListener("click", function(){
-
-
-  if(actfoc.style.backgroundColor == "aqua" ){
-   actiefItem --
-
-    actfoc.style.backgroundColor= "#666"
-    actfoc.firstChild.nextSibling.lastChild.style.color = "#eee"
-
-
-   }else if(actfoc.style.backgroundColor != "aqua"){
-
-actiefItem ++
-   
-     actfoc.style.backgroundColor = "aqua"
-   actief.style.color = "aqua"
-    actfoc.firstChild.nextSibling.lastChild.style.color = "black"
-   } 
-if(actiefItem == 0){
-   actief.style.color = "#999"
-}
  
 
+//als op deletebutton wordt gedrukt "X"
+  
+let delBtn = document.querySelectorAll(".delBtn")
+//console.log(delBtn)
+for (let i = 0; i < delBtn.length; i++) {
 
-})
+  delBtn[i].addEventListener("click", ((j) => {
 
-})
+    let cancelBtn = document.querySelector(".cancelbtn")
+    let deleteBtn = document.querySelector(".deletebtn")
+    let clearfix = document.querySelector(".clearfix")
 
+    return function () {
 
-//grote delete button om alles te deleten
-//delete alleen nog maar als je er op klikt, nog niet in firebase
-//met modal venster
-let deleteAll = document.querySelector(".deleteAll")
-deleteAll.addEventListener("click", delAl=>{
-
-  for(let c = 0; c<toDoAct.length;c++){
-    toDoAct[c].remove()
-
-  }
-
+      console.log(listItem[i].id)
+      console.log(delBtn[i].parentElement)
+      if (listItem[i].status == "active") {
+        // Get the modal
+        var modal = document.querySelector(".modal");
+        modal.style.display = "block"
 
 
-})
+        clearfix.addEventListener("click", function (event) {
+          if (event.target == cancelBtn) {
+            modal.style.display = "none";
+          } else if (event.target == deleteBtn) {
+
+            delBtn[i].parentElement.remove()
+            count--
+            countLeft = count - countCompleted
+            all.innerHTML = `${count} totaal`
+            itemsLeft.innerHTML = `${countLeft} items left`
+            itemsCompleted.innerHTML = `${countCompleted} items completed`
+
+
+            let delIt = listItem[i].id
+            console.log(listItem[i].id)
+            //delete item from firebase
+            db.collection("TodoItems").doc(delIt).delete()
+            modal.style.display = "none"
+
+            listItem.splice(i, 1)
+            console.log(listItem)
+            delBtn = []
+            listItem = []
+            console.log(i)
+          }
+
+
+         // console.log(listItem)
+        })
+
+
+      } else if (listItem[i].status == "completed") {
+        delBtn[i].parentElement.remove()
+        count--
+        countCompleted--
+        all.innerHTML = `${count} totaal`
+        itemsLeft.innerHTML = `${countLeft} items left`
+        itemsCompleted.innerHTML = `${countCompleted} items completed`
+
+        let delIt = listItem[i].id
+        //delete item from firebase
+        db.collection("TodoItems").doc(delIt).delete()
+        listItem.splice(i, 1)
+        //console.log(listItem)
+
+        delBtn = 0
+
+      }
+    }
+  })())
+}
 
 
 

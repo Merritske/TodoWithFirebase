@@ -24,62 +24,78 @@
 </head>
 
 <body>
+    <div class="topnav">
+        <h1 style="font-size: 25px; color: black;">TODOLIST </h1>
+        <div class="title">
+            Maria
+        </div>
+    </div>
+    <div class="header">
+        
+    
+        
+        <div class="dag">
+            Donderdag 20 januari 2022
+        </div>
+        <div class="theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
 
-    <!-- <div class="ui small image">
-   <svg width="50" height="50"> 
-<circle cx="20" cy="20" r="10" fill="red"/>  
-<line x1="0" y1="0" x2="10" y2="10" style="stroke: #666666; stroke-width:2"/> 
-<line x1="40" y1="40" x2="20" y2="20" style="stroke: #666666; stroke-width:2"/> 
-</svg>
-  </div> -->
-    <!-- <div class="background-image">
-        <img src="bg-desktop-dark.jpg" alt="">
-    </div> -->
+                <path fill="#FFF" fill-rule="evenodd"
+                    d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z" />
+
+            </svg>
+
+        </div>
+  
+    </div>
+    <br>
+
+
+
+    <!--slides kunnen aangepast worden aan de keuze van de gebruiker vb per thema: bloemen, landschappen,...-->
     <div class="background-image">
+      
+  
     <div class="slideshow-container">
 
-        <div class="mySlides fade">
+        <div class="mySlides fade" >
           <div class="numbertext"></div>
-          <img src="./pictures/wandel.jpg" style="width:100%">
-          <div class="text">Wandel</div>
+          <img src="./pictures/natuur/20200409_110202.jpg" style="width:100%; position: absolute;  ">
+       
         </div>
         
         <div class="mySlides fade">
           <div class="numbertext"></div>
-          <img src="./pictures/relax_kikker.jpg" style="width:100%">
-          <div class="text">Relax</div>
+          <img src="./pictures/natuur/20210706_172942.jpg" style="width:100%; position: absolute; bottom: -130%;"><!--bottom: -130%-->
+         
         </div>
         
         <div class="mySlides fade">
           <div class="numbertext"></div>
-          <img src="./pictures/voetbal.jpg" style="width:100%">
-          <div class="text">Voetbal</div>
+          <img src="./pictures/natuur/20201129_132844.jpg" style="width:100%; position:absolute ">
+       
         </div>
         
+      
+
+          <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <img src="./pictures/natuur/Averbode.jpg" style="width:100% ; position: absolute;">
+          
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext"></div>
+            <img src="./pictures/natuur/strandBlankenberge.jpg" style="width:100%; position: absolute; bottom: 2%;">
+
+          </div>
         </div>
         <br>
         
-        <div style="text-align:center">
-          <span class="dot"></span> 
-          <span class="dot"></span> 
-          <span class="dot"></span> 
-        </div>
-</div>
+         </div>
+
     <div class="container">
-        <div class="header">
-            <div class="title">
-                TODO
-            </div>
-            <div class="theme">
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
-
-                    <path fill="#FFF" fill-rule="evenodd"
-                        d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z" />
-
-                </svg>
-
-            </div>
-        </div>
+ 
         <div class="main">
             <div class="new-todo">
                 <!-- <div class="check">
@@ -107,19 +123,13 @@
                                 <img src="https://www.freeiconspng.com/uploads/black-check-tick-icon-4.png" width="25"
                                     alt="black check tick icon" /></a>
 
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9">
-
-                                    <path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6" />
-
-                                </svg> -->
-
                             </div>
                         </div>
                         <div class="todo-item">
                             <p>Koken</p>
                         </div>
                     </div>
-                    <button onclick="remove(this)">X</button>
+                  
 
                 </div>
 
@@ -128,7 +138,7 @@
             <div id="id01" class="modal">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <form class="modal-content" >
-                  <div class="container">
+   
                     <h1>Delete Item</h1>
                     <p>Are you sure you want to delete? Task is not completed.</p>
               
@@ -136,7 +146,7 @@
                       <button type="button" class="cancelbtn">Cancel</button>
                       <button type="button" class="deletebtn">Delete</button>
                     </div>
-                  </div>
+                 
                </form>
               </div>
         </div>
@@ -151,9 +161,6 @@
                     <span class="completed">Completed</span>
                 </div>
 
-                <div class="deleteAll">
-                    Delete All
-                </div>
 
             </div>
         </div>
