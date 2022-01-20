@@ -412,7 +412,7 @@ actie()
 
 //grote delete button om alles te deleten
 //delete alleen nog maar als je er op klikt, nog niet in firebase
-//met modal venster
+//met modal venster nog niet
 let deleteAll = document.querySelector(".deleteAll")
 deleteAll.addEventListener("click", delAl=>{
 

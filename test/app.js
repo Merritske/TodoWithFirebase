@@ -22,8 +22,37 @@ list.push(obj)
 
 count ++
 }
-
+//WERKT NIET?
 function myFunction() {
     var element = document.getElementById("myDIV");
     element.classList.toggle("mystyle");
   }
+//SWEET ALERT
+let button  = document.getElementById("sweetbtn")
+let sweetDiv = document.querySelector(".sweetalert")
+button.addEventListener("click", sweetAlert=>{
+ Swal.fire({
+    customClass:{
+title: "custom-title-class"
+ },
+
+    title: 'Are you sure?',
+    text:  "You will not be able to revert this!" ,
+    icon: 'warning',
+
+  
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+    }
+  })
+})
+ 

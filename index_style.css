@@ -6,7 +6,7 @@ box-sizing: border-box;
     body{
  font-family: Arial, Helvetica, sans-serif ;
  background-color: antiquewhite;
-
+ 
     font-size :30px;
     }
     .background-image{
@@ -21,62 +21,97 @@ box-sizing: border-box;
     }
   .topnav{
     margin-top: 20px;
-    width: 500px;
+    width: 100%;
     height: 100px;
-    margin-left: 700px;
-    letter-spacing: 5px;
-  display:inline-flex;
-  justify-content: center;
-
+       letter-spacing: 5px;
+  display: flex;
+  justify-content: space-around;
+  }
+  .topnavR{
+     margin-left: 150px;
   }
   .topnav>h1{
     font-weight: 900;
   }  
+  .help{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+margin-right: 150px;
+  }
+  /*help button*/
+  #sweetbtn:hover{
+    background-color: red;
+    cursor: pointer;
+ color: black;
+  } 
+   #sweetbtn{
+position: relative;
+right: 10px;
+width: 70px;
+height: 55px;
+    background-color: rgba(240, 10, 10, 0.2);
+   border-radius: 10px;
+   border: 2px solid red;
+   font-weight: 900;
+   color: red;
+  }
+  /*in sweetalert venster*/
+  .custom-title-class{
+    color:green;
+}
+
     .title{
  color: blue;
  font-weight: bold;
  padding-left: 35px;
 
     }
+
     .container{
  width:100%;
  max-width:700px;
   padding: 20px;
     margin: auto;
-    margin-top:250px;
+    margin-top: 303px;
       text-align: center;
+    
     }
-    .header{
-      width: 100%;
-      max-width: 500px;
-      position: absolute;
-   
-    }
+
  
     .dag{
-      width: 450px;
-      color : rgb(32, 32, 172);
-position: relative;
-left: 800px;
-top: 100px
+      color : black;
+      padding:15px; 
+  background-color: white;
+top: 350px;
+opacity: 0.5; 
+border-radius: 5px;
     }
 /*nog beweging insteken*/
     .theme{
-     padding-right: 15px;
-     position: relative;
-     left:900px;
-     
-    }
+
+     position: absolute;
+   height: 450px;
+   width: 900px;
+left: 500px;
+      }
+
+   .zon{
+     height: 30px;
+     width: 30px;
+  
+   
+   }   
+
+
+
     .new-todo{
  height: 70px;
  width:100%;
-     margin-top: 90px;
 border-radius:6px;
  background-color: #333333;
     display: flex;
     align-items: center;
  justify-content:center;
-    
+   
     }
     .check{
  width:50px;
@@ -114,13 +149,9 @@ border-radius:5px;
     background-color: red;
     cursor: pointer;
     box-shadow:0 0 10px 5px whitesmoke;
+    font-weight: bold;
   }
-button{
-position: relative;
-right: 10px;
-width: 50px;
-height: 35px;
-}
+
 
     .new-todo-input{
 height:50px;
@@ -139,9 +170,9 @@ outline: none;
   color: #fff
     }
   .todo-items-wrapper{
- 
+
   width:100%;
-  margin-top: 30px;
+  margin-top: 10px;
 border-radius: 5px;
     }
     .todo-items{

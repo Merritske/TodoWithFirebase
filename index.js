@@ -17,14 +17,84 @@ let count = 0
 
 //delete All nog activeren => modal box:alert : are you sure
 
-
-
-
 //LAYOUT
-//kleuren
-//deletebtn
+//kleuren?
+//deletebtn ALL staat er niet in
 //modalvenster nog layouten - kleuren - grootte
 
+
+
+
+//HELP FUNCTIE //echt bellen gaat nog niet
+const inputOptions = new Promise((resolve) => {
+ 
+    resolve({
+      '0470584694': 'An',
+      '0459876231': 'Linda',
+      '0497654123': 'Carl'
+    })
+  
+})
+let helpF = document.querySelector("#sweetbtn")
+helpF.addEventListener("click", gethelp=>{
+  Swal.fire({ customClass:{
+title: "custom-title-class",
+
+ },
+    title: 'Heb je dringend hulp nodig?',
+  
+    icon: 'warning',
+
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText:  'Ja, bel iemand voor hulp',
+  
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({title: 'Kies wie je wil bellen',
+      input: 'radio',
+      inputOptions: inputOptions,
+      inputValidator: (value) => {
+        if (!value) {
+          return 'Kies iemand van de drie!'
+        }else{
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `Er wordt gebeld naar ${value}`,
+            showConfirmButton: false,
+            timer: 3500
+          })
+        }
+      }
+    })
+    
+   
+  }   
+})
+})
+
+
+//zonnetje laten bewegen zoals zonnewijzer
+let zon = document.querySelector("svg")
+let uur = new Date().getHours()
+
+console.log(uur)
+
+
+
+
+//DAG invoeren
+let dag = document.querySelector(".dag")
+let days = ["zondag","maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"]
+let maand = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"]
+let d = new Date().getDay()
+let m = new Date().getMonth()
+let dD = new Date().getDate()
+let year = new Date().getFullYear()
+
+dag.innerHTML += days[d]+" "+ dD +" "  + maand[m]+ " " + year
 
 
 
@@ -394,7 +464,17 @@ for (let i = 0; i < delBtn.length; i++) {
 }
 
 
+//grote delete button om alles te deleten
+//delete alleen nog maar als je er op klikt, nog niet in firebase
+//met modal venster nog niet
+// let deleteAll = document.querySelector(".deleteAll")
+// deleteAll.addEventListener("click", delAl=>{
 
+//   for(let c = 0; c<toDoAct.length;c++){
+//     toDoAct[c].remove()
+
+//   }
+// })
 
 
 
