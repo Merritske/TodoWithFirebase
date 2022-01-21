@@ -39,9 +39,8 @@ body {
     width: 30px;
     height: 30px;
     background-color: grey;
-    position: absolute;
-    bottom: 10px;
-left: 10px;
+    position: relative;
+    transition: transform 12s;
 }
 .green{
     margin-top: 20px;
