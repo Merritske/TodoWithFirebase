@@ -31,28 +31,49 @@ const inputOptions = new Promise((resolve) => {
     resolve({
       '0470584694': 'An',
       '0459876231': 'Linda',
-      '0497654123': 'Carl'
+      '0497654123': 'Marc'
     })
   
 })
 let helpF = document.querySelector("#sweetbtn")
-helpF.addEventListener("click", gethelp=>{
-  Swal.fire({ customClass:{
-title: "custom-title-class",
 
- },
+helpF.addEventListener("click", gethelp=>{
+
+
+  Swal.fire({ 
+customClass:{
+
+  popup: "popup-class",
+  title: "custom-title-class",
+  
+  icon:  "icon",
+
+},
+
+ 
     title: 'Heb je dringend hulp nodig?',
   
-    icon: 'warning',
+    icon: 'warning', 
 
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
+    cancelButtonText:  'Neen ',
     confirmButtonText:  'Ja, bel iemand voor hulp',
+  
   
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire({title: 'Kies wie je wil bellen',
+      Swal.fire({
+        customClass:{
+
+          popup: "popup-class",
+          title: "custom-title-class",
+          input: "inputRadio",
+          icon:  "icon",
+        
+        },
+        title: 'Kies wie je wil bellen',
       input: 'radio',
       inputOptions: inputOptions,
       inputValidator: (value) => {
@@ -60,6 +81,14 @@ title: "custom-title-class",
           return 'Kies iemand van de drie!'
         }else{
           Swal.fire({
+            customClass:{
+
+              popup: "popup-class",
+              title: "custom-title-class",
+              
+              icon:  "icon",
+            
+            },
             position: 'center',
             icon: 'success',
             title: `Er wordt gebeld naar ${value}`,
@@ -135,17 +164,17 @@ function inputfunc(e) {
 
   count++
   //alert zetten bij 5, 10 en 15 items todo
-  switch (count) {
-    case 5:
-      alert("lots of things needs to be done")
-      break;
-    case 10:
-      alert("lots of things needs to be done, you better get started")
-      break;
-    case 15:
-      alert("what the f****k, this is too much for one day")
-      break;
-  }
+  // switch (count) {
+  //   case 5:
+  //     alert("lots of things needs to be done")
+  //     break;
+  //   case 10:
+  //     alert("lots of things needs to be done, you better get started")
+  //     break;
+  //   case 15:
+  //     alert("what the f****k, this is too much for one day")
+  //     break;
+  // }
 }
 
 
@@ -258,8 +287,8 @@ actiefItem ++
 
   //updaten bij het laden van de pagina
   countLeft = count - countCompleted
-  itemsLeft.innerHTML = `${countLeft} items left`
-  itemsCompleted.innerHTML = `${countCompleted} items completed`
+  itemsLeft.innerHTML = `${countLeft}  taken nog doen`
+  itemsCompleted.innerHTML = `${countCompleted}  zijn al klaar`
   all.innerHTML = `${count} totaal`
 
      
@@ -420,8 +449,8 @@ for (let i = 0; i < delBtn.length; i++) {
             count--
             countLeft = count - countCompleted
             all.innerHTML = `${count} totaal`
-            itemsLeft.innerHTML = `${countLeft} items left`
-            itemsCompleted.innerHTML = `${countCompleted} items completed`
+            itemsLeft.innerHTML = `${countLeft} nog doen`
+            itemsCompleted.innerHTML = `${countCompleted} zijn klaar`
 
 
             let delIt = listItem[i].id
@@ -447,8 +476,8 @@ for (let i = 0; i < delBtn.length; i++) {
         count--
         countCompleted--
         all.innerHTML = `${count} totaal`
-        itemsLeft.innerHTML = `${countLeft} items left`
-        itemsCompleted.innerHTML = `${countCompleted} items completed`
+        itemsLeft.innerHTML = `${countLeft} nog doen`
+        itemsCompleted.innerHTML = `${countCompleted} zijn klaar`
 
         let delIt = listItem[i].id
         //delete item from firebase
