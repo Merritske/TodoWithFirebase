@@ -464,17 +464,6 @@ for (let i = 0; i < delBtn.length; i++) {
 }
 
 
-//grote delete button om alles te deleten
-//delete alleen nog maar als je er op klikt, nog niet in firebase
-//met modal venster nog niet
-// let deleteAll = document.querySelector(".deleteAll")
-// deleteAll.addEventListener("click", delAl=>{
-
-//   for(let c = 0; c<toDoAct.length;c++){
-//     toDoAct[c].remove()
-
-//   }
-// })
 
 
 
