@@ -180,17 +180,21 @@ font-size: 45px;
     .theme{
      position: absolute;
    height: 450px;
-   width: 900px;
-margin-left: 800px;
+   width: 1000px;
+margin-left: 750px;
 margin-top: 200px;
       }
 
    .zon{
-     height: 30px;
-     width: 30px;
+     height: 50px;
+     width: 50px;
      position: relative;
-     top: 300px;
-   }   
+    top:400px;
+  left:30px;
+   }  
+   body > div.theme > div > svg{
+     transform: scale(2, 2);
+   }
     .new-todo{
  height: 70px;
  width:100%;

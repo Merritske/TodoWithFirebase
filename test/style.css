@@ -40,7 +40,9 @@ body {
     height: 30px;
     background-color: grey;
     position: relative;
-    transition: transform 12s;
+    transition: transform 3s;
+    top:150px;
+
 }
 .green{
     margin-top: 20px;

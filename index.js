@@ -282,6 +282,25 @@ actiefItem ++
 })
 
 })
+let zon = document.querySelector(".zon")
+
+ let num = ["0px,-10px","0px,-50px","10px,-100px","25px,-170px","50px,-210px","80px,-250px","120px,-290px","160px,-320px","200px,-340px", "240px, -360px",  "320px,-370px",  "400px,-380px",  "480px,-380px","520px,-370px","580px,-360px","620px,-340px","660px,-320px","710px,-290px","770px,-250px","820px,-210px ","860px,-170px ","900px,-130px ","930px,-90px ","940px,-50px", "950px,0px"]
+ let x = 0
+ 
+
+ function getRealTime(){
+
+ let uur = new Date().getHours()
+//document.getElementById('time').innerHTML = uur
+
+  zon.style.transform = `translate(${num[x]})`
+  x = uur
+}
+setInterval(function(){
+  getRealTime()
+  console.log("hello")
+
+},1000) //om de minuut de actuele minuten opvragen
 
 
 
