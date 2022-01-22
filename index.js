@@ -284,23 +284,24 @@ actiefItem ++
 })
 let zon = document.querySelector(".zon")
 
- let num = ["0px,-10px","0px,-50px","10px,-100px","25px,-170px","50px,-210px","80px,-250px","120px,-290px","160px,-320px","200px,-340px", "240px, -360px",  "320px,-370px",  "400px,-380px",  "480px,-380px","520px,-370px","580px,-360px","620px,-340px","660px,-320px","710px,-290px","770px,-250px","820px,-210px ","860px,-170px ","900px,-130px ","930px,-90px ","940px,-50px", "950px,0px"]
- let x = 0
+ let num = ["0px,0px","5px,-30px","10px,-60px","20px,-90px","30px,-120px","40px,-150px","60px,-200px","100px,-280px","160px,-330px", "230px, -360px",  "310px,-380px",  "390px,-395px",  "470px,-400px","550px,-395px","620px,-380px","680px,-360px","730px,-330px","780px,-290px","820px,-250px","870px,-200px ","905px,-150px ","925px,-100px ","930px,-50px ", "935px,0px"]
+   //             0           1           2             3           4            5               6              7             8                 9              10              11                12              13              14            15             16           17            18              19                  20             21                22            23
  
+ let x = 0
+
 
  function getRealTime(){
 
- let uur = new Date().getHours()
+  let uur = new Date().getHours()
+
 //document.getElementById('time').innerHTML = uur
 
-  zon.style.transform = `translate(${num[x]})`
+    zon.style.transform = `translate(${num[x]})`
   x = uur
-}
+ }
 setInterval(function(){
   getRealTime()
-  console.log("hello")
-
-},1000) //om de minuut de actuele minuten opvragen
+},10000) //om de minuut de actuele minuten opvragen
 
 
 
