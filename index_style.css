@@ -161,7 +161,7 @@ body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-ra
   padding: 20px;
   position: relative;
     margin: auto;
-    margin-top: 510px;
+    margin-top: 60px;
       text-align: center;
     
     }
@@ -176,24 +176,26 @@ opacity: 0.6;
 border-radius: 15px 15px 5px 5px;
 font-size: 45px;
     }
-/*nog beweging insteken*/
+
     .theme{
-     position: absolute;
+     position: relative;
    height: 450px;
    width: 1000px;
-margin-left: 750px;
-margin-top: 200px;
+   top: 100px;
+margin-left: auto;
+margin-right: auto;
+
       }
 
    .zon{
      height: 50px;
      width: 50px;
-     position: relative;
-    top:400px;
+ position: absolute;
   left:30px;
+  top: 450px;
   transition: transform 2s;
    }  
-   body > div.theme > div > svg{
+   div.theme > div > svg{
      transform: scale(2, 2);
    }
     .new-todo{

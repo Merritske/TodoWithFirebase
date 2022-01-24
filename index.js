@@ -8,6 +8,24 @@ let itemsCompleted = document.querySelector(".completed")
 let countCompleted = 0
 let countLeft = 0
 let count = 0
+//zonnetje laten bewegen zoals zonnewijzer
+
+let zon = document.querySelector(".zon")
+ let num = ["0px,0px","5px,-30px","10px,-60px","20px,-90px","30px,-120px","40px,-150px","60px,-200px","100px,-280px","160px,-330px", "230px, -360px",  "310px,-380px",  "390px,-395px",  "470px,-400px","550px,-395px","620px,-380px","680px,-360px","730px,-330px","780px,-290px","820px,-250px","870px,-200px ","905px,-150px ","925px,-100px ","930px,-50px ", "935px,0px"]
+   //             0           1           2             3           4            5               6              7             8                 9              10              11                12              13              14            15             16           17            18              19                  20             21                22            23
+ let x = 0
+
+ function getRealTime(){
+  let uur = new Date().getHours()
+  //om sneller te zien bewegen getHours naar getSeconds en in setInterval 1000 ipv 10000
+//document.getElementById('time').innerHTML = uur
+    zon.style.transform = `translate(${num[x]})`
+  x = uur
+ }
+setInterval(function(){
+  getRealTime()
+},10000) //om de minuut de actuele minuten opvragen
+
 
 //HELP FUNCTIE //echt bellen gaat nog niet
 const inputOptions = new Promise((resolve) => {
@@ -211,21 +229,6 @@ actiefItem ++
 })
 
 
-//zonnetje laten bewegen zoals zonnewijzer
-let zon = document.querySelector(".zon")
- let num = ["0px,0px","5px,-30px","10px,-60px","20px,-90px","30px,-120px","40px,-150px","60px,-200px","100px,-280px","160px,-330px", "230px, -360px",  "310px,-380px",  "390px,-395px",  "470px,-400px","550px,-395px","620px,-380px","680px,-360px","730px,-330px","780px,-290px","820px,-250px","870px,-200px ","905px,-150px ","925px,-100px ","930px,-50px ", "935px,0px"]
-   //             0           1           2             3           4            5               6              7             8                 9              10              11                12              13              14            15             16           17            18              19                  20             21                22            23
- let x = 0
-
- function getRealTime(){
-  let uur = new Date().getHours()
-//document.getElementById('time').innerHTML = uur
-    zon.style.transform = `translate(${num[x]})`
-  x = uur
- }
-setInterval(function(){
-  getRealTime()
-},10000) //om de minuut de actuele minuten opvragen
 
   //updaten bij het laden van de pagina
   countLeft = count - countCompleted
