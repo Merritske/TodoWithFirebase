@@ -17,14 +17,14 @@ let zon = document.querySelector(".zon")
 
  function getRealTime(){
   let uur = new Date().getHours()
-  //om sneller te zien bewegen getHours naar getSeconds en in setInterval 1000 ipv 10000
+  //om sneller te zien bewegen getHours naar getSeconds 
 //document.getElementById('time').innerHTML = uur
     zon.style.transform = `translate(${num[x]})`
   x = uur
  }
 setInterval(function(){
   getRealTime()
-},10000) //om de minuut de actuele minuten opvragen
+},1000) //om de seconde de actuele minuten opvragen
 
 
 //HELP FUNCTIE //echt bellen gaat nog niet
