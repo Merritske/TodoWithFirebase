@@ -89,19 +89,19 @@ dag.innerHTML += days[d] + " " + dD + " " + maand[m] + " " + year
 
 //zonnetje laten bewegen zoals zonnewijzer
 let zon = document.querySelector(".zon")
-let num = ["0px,0px", "5px,-30px", "10px,-60px", "20px,-90px", "30px,-120px", "40px,-150px", "60px,-200px", "100px,-280px", "160px,-330px", "230px, -360px", "310px,-380px", "390px,-395px", "470px,-400px", "550px,-395px", "620px,-380px", "680px,-360px", "730px,-330px", "780px,-290px", "820px,-250px", "870px,-200px ", "905px,-150px ", "925px,-100px ", "930px,-50px ", "935px,0px"]
+let num = ["0px,0px", "5px,-30px", "10px,-60px", "20px,-90px", "30px,-120px", "40px,-150px", "60px,-200px", "100px,-280px", "160px,-330px", "230px, -360px", "310px,-380px", "390px,-395px", "470px,-400px", "550px,-395px", "620px,-380px", "680px,-360px", "730px,-330px", "780px,-290px", "820px,-250px", "870px,-200px ", "885px,-150px ", "890px,-100px ", "895px,-50px ", "900px,0px"]
 //             0           1           2             3           4            5               6              7             8                 9              10              11                12              13              14            15             16           17            18              19                  20             21                22            23
 let x = 0
 
 function getRealTime() {
-  let uur = new Date().getSeconds()
+  let uur = new Date().getHours()
   //document.getElementById('time').innerHTML = uur
   zon.style.transform = `translate(${num[x]})`
   x = uur
 }
 setInterval(function () {
   getRealTime()
-}, 500) //om de minuut de actuele minuten opvragen
+}, 10000) //om de minuut de actuele minuten opvragen
 
 //automatische slideshow bovenaan
 var slideIndex = 0;
@@ -119,12 +119,12 @@ function showSlides() {
   setTimeout(showSlides, 5000); // Change image every 5 seconds
 }
 
-
-let snapshot = []
+//dingen uit de onload functie zetten anders update die enkel onload
 window.onload = function () {
-  snapshot = JSON.parse(localStorage.getItem("TodoList"))
-
-  for (let x = 0; x < snapshot.length; x++) {
+ let snapshot =[]
+if(localStorage.length>0){ 
+ snapshot = JSON.parse(localStorage.getItem("TodoList"))
+    for (let x = 0; x < snapshot.length; x++) {
     inputL.innerHTML += `<div class="todo-items">
     <div class="todoItems">
     <div class="check ${snapshot[x].status == "completed" ? "checked" : ""}">
@@ -134,6 +134,8 @@ window.onload = function () {
      <div class="todo-item">     <p id="${x}">${snapshot[x].text}</p>
     </div></div> <button class="delBtn" >X</button></div>`
     count++
+}
+
 
     //todoItems en hun status uploaden
     if (snapshot[x].status == "completed") {
@@ -172,7 +174,10 @@ window.onload = function () {
 
     console.log(snapshot)
     count++
-
+    all.innerHTML = `${count} totaal`
+    countLeft = count - countCompleted
+    itemsLeft.innerHTML = `${countLeft} nog doen`
+    itemsCompleted.innerHTML = `${countCompleted} zijn klaar`
     //alert zetten bij 5, 10 en 15 items todo voor toepassing voor mensen in een derpessie of burnout
     // switch (count) {
     //   case 5:
@@ -191,6 +196,7 @@ window.onload = function () {
   //Als je op een item drukt =>actief
   let toDoAct = document.querySelectorAll(".todo-item")
   let actief = document.querySelector(".actief")
+
   actiefItem = 0
   toDoAct.forEach((actfoc) => {
     actfoc.addEventListener("click", function (e) {
@@ -198,7 +204,6 @@ window.onload = function () {
       if (actfoc.parentElement.parentElement.style.backgroundColor == "aqua") {
         actfoc.parentElement.parentElement.style.backgroundColor = "#666"
         actfoc.style.color = "#eee"
-
         actiefItem--
         if (actiefItem != "0") {
           actief.style.color = "aqua"
@@ -215,53 +220,58 @@ window.onload = function () {
         actfoc.style.color = "black"
 
       }
-
-//NOG VERDER AANPASSEN!!!
-      //als je op checkmark drukt checkmark moet veranderen en in firebase moet completed
-      function actie() {
+    })})
+      //als je op checkmark drukt checkmark moet veranderen en in localstorage moet completed
+   //   function actie() {
         let checkM = document.querySelectorAll(".check")
-       // console.log(checkM)
+
         checkM.forEach((checkje) => {
           checkje.addEventListener("click", function (e) {
-            //   if(actiefItem != 0){
-            //     actief.style.color = "aqua"
-            //  }else{
-            //    actief.style.color ="#999" 
-            //  }
-            //
-           // actief.style.color = "#999"
+      console.log('piepeee')
+//             //   if(actiefItem != 0){
+//             //     actief.style.color = "aqua"
+//             //  }else{
+//             //    actief.style.color ="#999" 
+//             //  }
+//             //
+//actief.style.color = "#999"
 
-            //
-            let item = checkje.lastChild.id
-            console.log(item)
+//             //
+           let item = checkje.lastChild.id
+       
             for (let x = 0; x < snapshot.length; x++) {
 
-       
+        console.log(item)
 
-           if (x === item && snapshot[x].status == "active") {
-                snapshot[x].status = "completed";
-// localStorage.setItem("TodoList", JSON.stringify([...snapshot, {...snapshot[x], status: "completed" }]))
- console.log(snapshot)
-               // e.style.backgroundColor = "blue"
+           if (x == item && snapshot[x].status === "active") {  
+                console.log("piep")
+                snapshot = [ {...snapshot[x], status: "completed" }]
+                console.log(snapshot)
+localStorage.setItem("TodoList", JSON.stringify(snapshot))
 
+               checkje.classList.add(".checked")
+  countCompleted++
 
                
               }
             
  else {
+   localStorage.setItem("TodoList", JSON.stringify([ {...snapshot[x], status: "active" }]))
+   checkje.style.backgroundColor = "aqua"
+   checkje.classList.remove(".checked")
             count = 0
           countLeft = 0
           }
      }
       
-        //  console.log(toDoAct) = nodelist
-        //console.log(listItem) = array
-        // console.log(countCompleted)
-        //  }
-      })
+//         //  console.log(toDoAct) = nodelist
+//         //console.log(listItem) = array
+//         // console.log(countCompleted)
+//         //  }
+     })
   }) 
-   countCompleted++
-}
+ 
+//}
 // switch (countCompleted) {
 //   case 3:
 //     alert("Time for a break")
@@ -322,19 +332,17 @@ compleet.addEventListener("click", act => {
 
   }
 })
-actie()
+//actie()
 
 //als op deletebutton wordt gedrukt "X"
 let delBtn = document.querySelectorAll(".delBtn")
-//console.log(delBtn)
+console.log(delBtn)
 for (let i = 0; i < delBtn.length; i++) {
   delBtn[i].addEventListener("click", ((j) => {
     let cancelBtn = document.querySelector(".cancelbtn")
     let deleteBtn = document.querySelector(".deletebtn")
     let clearfix = document.querySelector(".clearfix")
     return function () {
-
-      console.log(delBtn[i])
       if (snapshot[i].status == "active") {
         // Get the modal
         var modal = document.querySelector(".modal");
@@ -349,12 +357,15 @@ for (let i = 0; i < delBtn.length; i++) {
             all.innerHTML = `${count} totaal`
             itemsLeft.innerHTML = `${countLeft} nog doen`
             itemsCompleted.innerHTML = `${countCompleted} zijn klaar`
-            let delIt = snapshot[i]
-            console.log(delIt)
-            //delete item from firebase
-            localStorage.removeItem(delIt)
+
+       //delete item from localstorage
+                     snapshot.splice(i,1)
+               console.log(snapshot)
+    localStorage.setItem("TodoList", JSON.stringify(snapshot))
+         
+      
             modal.style.display = "none"
-            snapshot.splice(i, 1)
+ 
 
             delBtn = []
           }
@@ -367,20 +378,16 @@ for (let i = 0; i < delBtn.length; i++) {
         all.innerHTML = `${count} totaal`
         itemsLeft.innerHTML = `${countLeft} nog doen`
         itemsCompleted.innerHTML = `${countCompleted} zijn klaar`
-        let delIt = snapshot[i]
-        //delete item from firebase
-        localStorage.removeItem(delIt)
+    
+        //delete item from localstorage
         snapshot.splice(i, 1)
-        //console.log(listItem)
+        localStorage.setItem("TodoList", JSON.stringify(snapshot))
         delBtn = 0
       }
     }
   })())
 }
-})
 
-
-})
 }
 
 
