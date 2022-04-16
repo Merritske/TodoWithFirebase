@@ -94,14 +94,14 @@ let num = ["0px,0px", "5px,-30px", "10px,-60px", "20px,-90px", "30px,-120px", "4
 let x = 0
 
 function getRealTime() {
-  let uur = new Date().getHours()
+  let uur = new Date().getSeconds()
   //document.getElementById('time').innerHTML = uur
   zon.style.transform = `translate(${num[x]})`
   x = uur
 }
 setInterval(function () {
   getRealTime()
-}, 10000) //om de minuut de actuele minuten opvragen
+}, 500) //om de minuut de actuele minuten opvragen
 
 //automatische slideshow bovenaan
 var slideIndex = 0;
