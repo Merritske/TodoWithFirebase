@@ -9,6 +9,8 @@ let countCompleted = 0
 let countLeft = 0
 let count = 0
 
+
+
 //https://www.tutorialspoint.com/firebase/firebase_quick_guide.htm
 
 //https://www.javascripttutorial.net/javascript-fetch-api/
@@ -376,13 +378,6 @@ for (let i = 0; i < delBtn.length; i++) {
   })())
 }
 })
-
-
-
-
-
-
-
 
 
 })
