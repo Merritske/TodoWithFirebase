@@ -577,8 +577,8 @@ hr {
     width: 100%;
     position: relative;
     margin: auto;
-    height: 300px;
-    border-radius: 25px;
+    height: 200px;
+    border-radius: 15px;
     overflow: hidden;
   }
 
