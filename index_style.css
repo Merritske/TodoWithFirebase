@@ -1,49 +1,82 @@
-*{
-margin:0;
-     padding:0;
-box-sizing: border-box;
-    }
-    body{
- font-family: Arial, Helvetica, sans-serif ;
- background-color: antiquewhite;
-     font-size :30px;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .background-image{
-    position: absolute;
-    top: 100px;
-    left: 0;
-    right: 0;
-    height: 580px;
-width: auto;
-    z-index:-1;
-    margin-top: 50px;
-    }
-    .mySlides {display: none;}
-img {vertical-align: middle;}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: antiquewhite;
+  font-size: 30px;
+}
+
+.background-image {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  height: 580px;
+  width: auto;
+  z-index: -1;
+  margin-top: 50px;
+}
+
+.mySlides {
+  display: none;
+}
+
+img {
+  vertical-align: middle;
+}
 
 .active {
   background-color: #717171;
 }
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 8s;
   animation-name: fade;
-  animation-duration:8s;
+  animation-duration: 8s;
 }
+
 @-webkit-keyframes fade {
-  0% {opacity: .1} 
-  30% {opacity: 1}
-  90% {opacity: 1}
-  100% {opacity: 0.2}
+  0% {
+    opacity: .1
+  }
+
+  30% {
+    opacity: 1
+  }
+
+  90% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 0.2
+  }
 }
+
 @keyframes fade {
-  0% {opacity: .1} 
-  30% {opacity: 1}
-  90% {opacity: 1}
-  100% {opacity: 0.2}
+  0% {
+    opacity: .1
+  }
+
+  30% {
+    opacity: 1
+  }
+
+  90% {
+    opacity: 1
+  }
+
+  100% {
+    opacity: 0.2
+  }
 }
+
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
@@ -51,176 +84,690 @@ img {vertical-align: middle;}
   margin: auto;
   height: 500px;
   border-radius: 25px;
-   overflow: hidden;
+  overflow: hidden;
 }
 
-  .topnav{
-    position: absolute;
-    margin-top: 30px;
-    width: 100%;
-    height: 120px;
-       letter-spacing: 5px;
+.topnav {
+  position: absolute;
+  margin-top: 30px;
+  width: 100%;
+  height: 120px;
+  letter-spacing: 5px;
   display: flex;
   justify-content: space-evenly;
-  }
-  .topnavR{
-     margin-left: 150px;
-     margin-top: 20px;
-  }
-  .topnav>h1{
-    font-weight: 900;
-  }  
-  .help{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-margin-right: 150px;
-  }
-  /*hulp button*/
-  #sweetbtn:hover{
-    background-color: red;
-    cursor: pointer;
- color: rgb(255, 160, 160);
-  } 
-   #sweetbtn{
-position: relative;
-right: 10px;
-padding: 15px;
-    background-color: rgba(240, 10, 10, 0.2);
-   border-radius: 10px;
-   border: 5px solid red;
-   font-weight: 900;
-   font-size: 35px;;
-   color: red;
-  }
-  /*in sweetalert venster*/
-  .custom-title-class{
-    color:green;
-font-size: 65px;
-margin-top: 100px;
 }
-.icon{
-transform: scale(3,3);
+
+.topnavR {
+  margin-left: 150px;
+  margin-top: 20px;
+}
+
+.topnav>h1 {
+  font-weight: 900;
+}
+
+.help {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: 150px;
+}
+
+/*hulp button*/
+#sweetbtn:hover {
+  background-color: red;
+  cursor: pointer;
+  color: rgb(255, 160, 160);
+}
+
+#sweetbtn {
+  position: relative;
+  right: 10px;
+  padding: 15px;
+  background-color: rgba(240, 10, 10, 0.2);
+  border-radius: 10px;
+  border: 5px solid red;
+  font-weight: 900;
+  font-size: 35px;
+  ;
+  color: red;
+}
+
+/*in sweetalert venster*/
+.custom-title-class {
+  color: green;
+  font-size: 65px;
+  margin-top: 100px;
+}
+
+.icon {
+  transform: scale(3, 3);
   border: 5px solid red;
   border-radius: 50%;
   margin: 20px auto;
   position: relative;
-  top:100px;
+  top: 100px;
   box-sizing: content-box;
 }
-button.swal2-confirm.swal2-styled{
+
+button.swal2-confirm.swal2-styled {
   height: 100px;
   font-size: 50px;
-margin: auto;
+  margin: auto;
 }
-body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-actions > button.swal2-cancel.swal2-styled.swal2-default-outline{
+
+body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-actions>button.swal2-cancel.swal2-styled.swal2-default-outline {
   height: 100px;
-  width:200px;
+  width: 200px;
   border-radius: 15px;
   font-size: 50px;
   padding-left: 45px;
 }
-body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(1) > input[type=radio]{
+
+body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(1)>input[type=radio] {
   width: 25px;
   height: 25px;
 }
-body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(2) > input[type=radio]{
+
+body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(2)>input[type=radio] {
   width: 25px;
   height: 25px;
 }
-body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(3) > input[type=radio]{
+
+body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(3)>input[type=radio] {
   width: 25px;
   height: 25px;
 }
-body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(1) > input[type=radio]:hover{
+
+body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(1)>input[type=radio]:hover {
   width: 35px;
   height: 35px;
 }
-body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(2) > input[type=radio]:hover{
+
+body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(2)>input[type=radio]:hover {
   width: 35px;
   height: 35px;
 }
-body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(3) > input[type=radio]:hover{
+
+body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(3)>input[type=radio]:hover {
   width: 35px;
   height: 35px;
 }
-.inputRadio{
+
+.inputRadio {
   font-size: 30px;
 }
 
-.popup-class{
+.popup-class {
   width: 1200px;
   height: 700px;
 }
 
 
-    .title{
- color: blue;
- font-weight: bold;
- padding-left: 35px;
+.title {
+  color: blue;
+  font-weight: bold;
+  padding-left: 35px;
 
-    }
+}
 
-    .container{
- width:100%;
- max-width:900px;
+.container {
+  width: 100%;
+  max-width: 900px;
   padding: 20px;
   position: relative;
-    margin: auto;
-margin-top: 55px;
-      text-align: center;
-    
-    }
+  margin: auto;
+  margin-top: 55px;
+  text-align: center;
 
- 
-    .dag{
-      color : black;
-      padding:15px; 
+}
+
+
+.dag {
+  color: black;
+  padding: 15px;
   background-color: white;
-top: 300px;
-opacity: 0.6; 
-border-radius: 15px 15px 5px 5px;
-font-size: 45px;
-    }
-/*nog beweging insteken*/
-    .theme{
-     position: relative;
-     top: 150px;
-   height: 450px;
-   width: 900px;
-margin-left: auto;
-margin-right: auto;
-      }
+  top: 300px;
+  opacity: 0.6;
+  border-radius: 15px 15px 5px 5px;
+  font-size: 45px;
+}
 
-   .zon{
-     height: 50px;
-     width: 50px;
-     position: absolute;
-     bottom: 0px;
-     left: 0px;
-     transition: transform 2s;
-   }  
-   body > div.theme > div > svg{
-     transform: scale(2, 2);
-   }
-    .new-todo{
- height: 70px;
- width:100%;
-border-radius:6px;
- background-color: #333333;
-    } 
-       .input input{
+/*nog beweging insteken*/
+.theme {
+  position: relative;
+  top: 150px;
+  height: 450px;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zon {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  transition: transform 2s;
+}
+
+body>div.theme>div>svg {
+  transform: scale(2, 2);
+}
+
+.new-todo {
+  height: 70px;
+  width: 100%;
+  border-radius: 6px;
+  background-color: #333333;
+}
+
+.input input {
   font-size: 30px;
   width: 100%;
   margin: 15px;
   margin-left: 30px;
-   background-color: transparent;
- border:none;
-outline: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
   color: #fff;
 }
-    .check{
- width:50px;
-height: 50px;
-    border: 2px solid #111;
+
+.check {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #111;
+  margin-left: 10px;
+  border-radius: 50%;
+  opacity: 0.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.check:hover {
+  border-color: #fff;
+  background-color: blue;
+}
+
+.checked {
+  border-color: #eee;
+  border-width: 8px;
+  background-color: aqua;
+}
+
+
+.delBtn {
+  position: relative;
+  right: 10px;
+  width: 50px;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.delBtn:hover {
+  background-color: red;
+  cursor: pointer;
+  box-shadow: 0 0 10px 5px whitesmoke;
+  font-weight: bold;
+}
+
+
+.todo-items-wrapper {
+
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.todo-items {
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #666;
+  border-bottom: 1px solid #999;
+  height: 70px;
+  font-size: 35px;
+}
+
+.todoItems {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+.todo-items:hover {
+  box-shadow: 0 0 5px 2px #333;
+  height: 80px;
+  background-color: #999;
+  font-size: 40px;
+  cursor: pointer;
+
+}
+
+.todo-item {
+  padding-left: 35px;
+  color: #eee;
+  width: 100%;
+  height: 70px;
+
+}
+
+p {
+  margin-top: 25px;
+
+}
+
+.footer {
+  height: 100px;
+  margin-top: 0;
+}
+
+.info {
+  background-color: #333;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 10px;
+  color: #999;
+  font-size: 24px;
+}
+
+.actief {
+  margin-left: 30px;
+}
+
+.status {
+  margin-right: 30px;
+}
+
+.all,
+.completed,
+.itemsleft {
+  margin-left: 40px;
+}
+
+.all:hover,
+.completed:hover,
+.itemsleft:hover {
+  color: aqua;
+  cursor: pointer;
+}
+
+/*Modal*/
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn,
+.deletebtn {
+
+  width: 50%;
+  height: 50px;
+  margin-top: 35px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.deletebtn:hover {
+  background-color: #f00;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+.cancelbtn:hover {
+  background-color: #0f0;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+  background-color: #f44336;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  top: 350px;
+
+
+  width: 880px;
+  /* Full width */
+}
+
+.modal-show {
+  display: block;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #3f9;
+  margin: auto;
+  border: 10px solid #888;
+  border-radius: 5px;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+  padding: 20px
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 45px;
+  top: 25px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: antiquewhite;
+    font-size: 90%;
+  }
+
+  .background-image {
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    right: 0px;
+    height: auto;
+    width: 100%;
+    z-index: -1;
+    margin-top: 50px;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  .active {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 8s;
+    animation-name: fade;
+    animation-duration: 8s;
+  }
+
+  @-webkit-keyframes fade {
+    0% {
+      opacity: .1
+    }
+
+    30% {
+      opacity: 1
+    }
+
+    90% {
+      opacity: 1
+    }
+
+    100% {
+      opacity: 0.2
+    }
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: .1
+    }
+
+    30% {
+      opacity: 1
+    }
+
+    90% {
+      opacity: 1
+    }
+
+    100% {
+      opacity: 0.2
+    }
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    height: 300px;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .topnav {
+    position: absolute;
+    margin-top: 0px;
+    width: 100%;
+    height: 80px;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .topnavR {
+    margin-left: 150px;
+  }
+
+  .topnav>h1 {
+    font-weight: 900;
+  }
+
+  .help {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-right: 150px;
+  }
+
+  /*hulp button*/
+  #sweetbtn:hover {
+    background-color: red;
+    cursor: pointer;
+    color: rgb(255, 160, 160);
+  }
+
+  #sweetbtn {
+    position: relative;
+    left: 50px;
+    top: 15px;
+    padding: 8px;
+    background-color: rgba(240, 10, 10, 0.2);
+    border-radius: 10px;
+    border: 3px solid red;
+    font-weight: 900;
+    font-size: 20px;
+    ;
+    color: red;
+  }
+
+  /*in sweetalert venster*/
+  .custom-title-class {
+    color: green;
+    font-size: 25px;
+    margin-top: 0px;
+  }
+
+  .icon {
+    transform: scale(1.2, 1.2);
+    border: 5px solid red;
+    border-radius: 50%;
+    margin: 10px auto;
+    position: relative;
+    top: 50px;
+    box-sizing: content-box;
+  }
+
+  button.swal2-confirm.swal2-styled {
+    height: 50px;
+    font-size: 20px;
+    margin: auto;
+  }
+
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-actions>button.swal2-cancel.swal2-styled.swal2-default-outline {
+    height: 50px;
+    width: 80px;
+    border-radius: 15px;
+    font-size: 20px;
+    padding-left: 20px;
+  }
+
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(1)>input[type=radio] {
+    width: 15px;
+    height: 15px;
+  }
+
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(2)>input[type=radio] {
+    width: 15px;
+    height: 15px;
+  }
+
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(3)>input[type=radio] {
+    width: 15px;
+    height: 15px;
+  }
+
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(1)>input[type=radio]:hover {
+    width: 25px;
+    height: 25px;
+  }
+
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(2)>input[type=radio]:hover {
+    width: 25px;
+    height: 25px;
+  }
+
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(3)>input[type=radio]:hover {
+    width: 25px;
+    height: 25px;
+  }
+
+  .inputRadio {
+    font-size: 20px;
+  }
+
+  .popup-class {
+    width: 500px;
+    height: 400px;
+    top: -100px;
+  }
+
+
+  .title {
+    color: blue;
+    font-weight: bold;
+    padding-left: 25px;
+
+  }
+
+  .container {
+    max-width: 80%;
+    padding: 0px;
+    position: relative;
+    margin: 0;
+    margin-top: 0px;
+    text-align: center;
+  }
+
+
+  .dag {
+    color: black;
+    padding: 5px;
+    background-color: white;
+    top: 30px;
+    opacity: 0.6;
+    border-radius: 15px 15px 5px 5px;
+    font-size: 25px;
+  }
+
+  .theme {
+    position: relative;
+    top: 10px;
+    height: 250px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .zon {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: transform 2s;
+  }
+
+  body>div.theme>div>svg {
+    transform: scale(2, 2);
+  }
+
+  .new-todo {
+    height: 30px;
+    width: 100%;
+    border-radius: 6px;
+    background-color: #333333;
+  }
+
+  .input input {
+    font-size: 15px;
+    width: 100%;
+    margin: 10px 15px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+  }
+
+  .check {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #111;
     margin-left: 10px;
     border-radius: 50%;
     opacity: 0.2;
@@ -228,594 +775,209 @@ height: 50px;
     align-items: center;
     justify-content: center;
 
-    }
-
-    .check:hover{
-border-color: #fff;
-background-color: blue;
-    } 
-    .checked{
- border-color: #eee;
- border-width: 8px; 
- background-color: aqua;
-    }
-
-   
-.delBtn{
-  position: relative;
-  right: 10px;
-  width: 50px;
-  height: 35px;
-border-radius:5px;
   }
-  .delBtn:hover{
+
+  .check:hover {
+    border-color: #fff;
+    background-color: blue;
+  }
+
+  .checked {
+    border-color: #eee;
+    border-width: 8px;
+    background-color: aqua;
+  }
+
+
+  .delBtn {
+    position: relative;
+    right: 10px;
+    width: 20px;
+    height: 15px;
+    border-radius: 5px;
+  }
+
+  .delBtn:hover {
     background-color: red;
     cursor: pointer;
-    box-shadow:0 0 10px 5px whitesmoke;
+    box-shadow: 0 0 10px 5px whitesmoke;
     font-weight: bold;
   }
 
 
-  .todo-items-wrapper{
+  .todo-items-wrapper {
 
-  width:100%;
-  margin-top: 10px;
-border-radius: 5px;
-    }
-    .todo-items{
-border-radius: 10px;
- padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  .todo-items {
+    border-radius: 10px;
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-background-color: #666;
-border-bottom: 1px solid #999;
- height: 70px;
- font-size: 35px;
-    }
-    .todoItems{
-display: flex;
-align-items: center;
-width: 100%;
+    background-color: #666;
+    border-bottom: 1px solid #999;
+    height: 40px;
+    font-size: 15px;
+  }
 
-    }
-
-    .todo-items:hover {
-   box-shadow: 0 0 5px 2px #333;
-    height: 80px;
-    background-color: #999;
-     font-size: 40px;
-  cursor: pointer;
-
-    }
-    
-    .todo-item{
-    padding-left: 35px;
-    color:#eee;
+  .todoItems {
+    display: flex;
+    align-items: center;
     width: 100%;
-      height:70px; 
- 
-    }
-p{
-margin-top: 25px;
 
-}
-  .footer{
-    height: 100px;
-    margin-top: 0;
-  } 
-    .info{
-   background-color: #333;
-   height: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
+  }
 
- margin-top:10px;
-    color:#999;
-    font-size: 24px;
-    }
-    .actief{
-      margin-left: 30px;
-    }
-.status{
-  margin-right: 30px;
-}
-
-    .all, .completed, .itemsleft{
-      margin-left: 40px;
-    }
-    .all:hover,  .completed:hover, .itemsleft:hover{
-        color : aqua;
-        cursor: pointer;
-    }
-/*Modal*/
-    /* Float cancel and delete buttons and add an equal width */
-.cancelbtn, .deletebtn {
-   
-    width: 50%;
+  .todo-items:hover {
+    box-shadow: 0 0 5px 2px #333;
     height: 50px;
-    margin-top: 35px;
-    font-size: 30px;
+    background-color: #999;
+    font-size: 20px;
+    cursor: pointer;
+
+  }
+
+  .todo-item {
+    padding-left: 15px;
+    color: #eee;
+    width: 100%;
+    height: 50px;
+
+  }
+
+  p {
+    margin-top: 15px;
+
+  }
+
+  .footer {
+    height: 60px;
+    margin-top: 0;
+  }
+
+  .info {
+    background-color: #333;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    color: #999;
+    font-size: 12px;
+  }
+
+  .actief {
+    margin-left: 30px;
+  }
+
+  .status {
+    margin-right: 10px;
+  }
+
+  .all,
+  .completed,
+  .itemsleft {
+    margin-left: 20px;
+  }
+
+  .all:hover,
+  .completed:hover,
+  .itemsleft:hover {
+    color: aqua;
+    cursor: pointer;
+  }
+
+  /*Modal*/
+  /* Float cancel and delete buttons and add an equal width */
+  .cancelbtn,
+  .deletebtn {
+
+    width: 20%;
+    height: 30px;
+    margin-top: 15px;
+    font-size: 15px;
     border-radius: 10px;
   }
-  .deletebtn:hover{
+
+  .deletebtn:hover {
     background-color: #f00;
   }
+
   /* Add a color to the cancel button */
   .cancelbtn {
     background-color: #ccc;
     color: black;
   }
-  .cancelbtn:hover{
+
+  .cancelbtn:hover {
     background-color: #0f0;
-  } 
+  }
+
   /* Add a color to the delete button */
   .deletebtn {
     background-color: #f44336;
   }
 
-  
+
   /* The Modal (background) */
   .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    top: 350px;
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    top: 150px;
+    width: 80%;
+    /* Full width */
+  }
 
- 
-    width: 880px; /* Full width */
+  .modal-show {
+    display: block;
   }
-  .modal-show{
-      display:block;
-  }
+
   /* Modal Content/Box */
   .modal-content {
     background-color: #3f9;
-   margin: auto;
-    border: 10px solid #888;
+    margin: auto;
+    border: 5px solid #888;
     border-radius: 5px;
-    width: 80%; /* Could be more or less, depending on screen size */
-    padding:20px
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+    padding: 10px
   }
-  
+
   /* Style the horizontal ruler */
   hr {
-    border:1px solid #f1f1f1;
+    border: 1px solid #f1f1f1;
     margin-bottom: 25px;
   }
-  
+
   /* The Modal Close Button (x) */
   .close {
     position: absolute;
-    right: 45px;
-    top: 25px;
-    font-size: 40px;
+    right: 55px;
+    top: 1px;
+    font-size: 20px;
     font-weight: bold;
     color: #f1f1f1;
   }
-  
+
   .close:hover,
   .close:focus {
     color: #f44336;
     cursor: pointer;
   }
-  
-/* Clear floats */
+
+  /* Clear floats */
   .clearfix::after {
     content: "";
     clear: both;
     display: table;
-  } 
+  }
 
-
-
-@media only screen and (max-width: 768px) {
-  *{
-    margin:0;
-         padding:0;
-    box-sizing: border-box;
-        }
-        body{
-     font-family: Arial, Helvetica, sans-serif ;
-     background-color: antiquewhite;
-         font-size :90%;
-        }
-    
-        .background-image{
-        position: absolute;
-        top: 20px;
-        left: 0px;
-        right: 0px;
-        height:auto;
-   width: 100%;
-        z-index:-1;
-        margin-top: 50px;
-        }
-        .mySlides {display: none;}
-    img {vertical-align: middle;
-}
-    
-    .active {
-      background-color: #717171;
-    }
-    /* Fading animation */
-    .fade {
-      -webkit-animation-name: fade;
-      -webkit-animation-duration: 8s;
-      animation-name: fade;
-      animation-duration:8s;
-    }
-    @-webkit-keyframes fade {
-      0% {opacity: .1} 
-      30% {opacity: 1}
-      90% {opacity: 1}
-      100% {opacity: 0.2}
-    }
-    @keyframes fade {
-      0% {opacity: .1} 
-      30% {opacity: 1}
-      90% {opacity: 1}
-      100% {opacity: 0.2}
-    }
-    /* Slideshow container */
-    .slideshow-container {
-     width: 100%;
-      position: relative;
-      margin: auto;
-      height: 300px;
-      border-radius: 25px;
-       overflow: hidden;
-    }
-    
-      .topnav{
-        position: absolute;
-      margin-top: 0px;
-        width: 100%;
-        height: 80px;
-           letter-spacing: 3px;
-      display: flex;
-      justify-content: space-around;
-      }
-      .topnavR{
-         margin-left: 150px;
-      }
-      .topnav>h1{
-        font-weight: 900;
-      }  
-      .help{
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    margin-right: 150px;
-      }
-      /*hulp button*/
-      #sweetbtn:hover{
-        background-color: red;
-        cursor: pointer;
-     color: rgb(255, 160, 160);
-      } 
-       #sweetbtn{
-    position: relative;
-    left: 50px;
-    top: 15px;
-    padding: 8px;
-        background-color: rgba(240, 10, 10, 0.2);
-       border-radius: 10px;
-       border: 3px solid red;
-       font-weight: 900;
-       font-size: 20px;;
-       color: red;
-      }
-      /*in sweetalert venster*/
-      .custom-title-class{
-        color:green;
-    font-size: 25px;
-    margin-top: 0px;
-    }
-    .icon{
-    transform: scale(1.2,1.2);
-      border: 5px solid red;
-      border-radius: 50%;
-      margin: 10px auto;
-      position: relative;
-      top:50px;
-      box-sizing: content-box;
-    }
-    button.swal2-confirm.swal2-styled{
-      height: 50px;
-      font-size: 20px;
-    margin: auto;
-    }
-    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-actions > button.swal2-cancel.swal2-styled.swal2-default-outline{
-      height: 50px;
-      width:80px;
-      border-radius: 15px;
-      font-size: 20px;
-      padding-left: 20px;
-    }
-    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(1) > input[type=radio]{
-      width: 15px;
-      height: 15px;
-    }
-    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(2) > input[type=radio]{
-      width: 15px;
-      height: 15px;
-    }
-    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(3) > input[type=radio]{
-      width: 15px;
-      height: 15px;
-    }
-    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(1) > input[type=radio]:hover{
-      width: 25px;
-      height: 25px;
-    }
-    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(2) > input[type=radio]:hover{
-      width: 25px;
-      height: 25px;
-    }
-    body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-radio.inputRadio > label:nth-child(3) > input[type=radio]:hover{
-      width: 25px;
-      height: 25px;
-    }
-    .inputRadio{
-      font-size: 20px;
-    }
-    
-    .popup-class{
-      width: 500px;
-      height: 400px;
-      top: -100px;
-    }
-    
-    
-        .title{
-     color: blue;
-     font-weight: bold;
-     padding-left: 25px;
-    
-        }
-    
-        .container{
-    max-width: 80%; 
-      padding: 0px;
-      position: relative;
-        margin: 0;
-    margin-top: 0px;
-          text-align: center;
-        }
-    
-     
-        .dag{
-          color : black;
-          padding:5px; 
-      background-color: white;
-    top: 30px;
-    opacity: 0.6; 
-    border-radius: 15px 15px 5px 5px;
-    font-size: 25px;
-        }
-
-        .theme{
-         position: relative;
-         top: 10px;
-       height: 250px;
-       width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-          }
-    
-       .zon{
-         height: 30px;
-         width: 30px;
-         position: absolute;
-         bottom: 0px;
-         left: 0px;
-         transition: transform 2s;
-       }  
-       body > div.theme > div > svg{
-         transform: scale(2, 2);
-       }
-        .new-todo{
-     height: 30px;
-     width:100%;
-    border-radius:6px;
-     background-color: #333333;
-        } 
-           .input input{
-      font-size: 15px;
-      width: 100%;
-      margin: 10px 15px;
-       background-color: transparent;
-     border:none;
-    outline: none;
-      color: #fff;
-    }
-        .check{
-     width:20px;
-    height: 20px;
-        border: 1px solid #111;
-        margin-left: 10px;
-        border-radius: 50%;
-        opacity: 0.2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    
-        }
-    
-        .check:hover{
-    border-color: #fff;
-    background-color: blue;
-        } 
-        .checked{
-     border-color: #eee;
-     border-width: 8px; 
-     background-color: aqua;
-        }
-    
-       
-    .delBtn{
-      position: relative;
-      right: 10px;
-      width: 20px;
-      height: 15px;
-    border-radius:5px;
-      }
-      .delBtn:hover{
-        background-color: red;
-        cursor: pointer;
-        box-shadow:0 0 10px 5px whitesmoke;
-        font-weight: bold;
-      }
-    
-    
-      .todo-items-wrapper{
-    
-      width:100%;
-      margin-top: 10px;
-    border-radius: 5px;
-        }
-        .todo-items{
-    border-radius: 10px;
-     padding: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    background-color: #666;
-    border-bottom: 1px solid #999;
-     height: 40px;
-     font-size: 15px;
-        }
-        .todoItems{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    
-        }
-    
-        .todo-items:hover {
-       box-shadow: 0 0 5px 2px #333;
-        height: 50px;
-        background-color: #999;
-         font-size: 20px;
-      cursor: pointer;
-    
-        }
-        
-        .todo-item{
-        padding-left: 15px;
-        color:#eee;
-        width: 100%;
-          height:50px; 
-     
-        }
-    p{
-    margin-top: 15px;
-    
-    }
-      .footer{
-        height: 60px;
-        margin-top: 0;
-      } 
-        .info{
-       background-color: #333;
-       height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-     margin-top:10px;
-        color:#999;
-        font-size: 12px;
-        }
-        .actief{
-          margin-left: 30px;
-        }
-    .status{
-      margin-right: 30px;
-    }
-    
-        .all, .completed, .itemsleft{
-          margin-left: 40px;
-        }
-        .all:hover,  .completed:hover, .itemsleft:hover{
-            color : aqua;
-            cursor: pointer;
-        }
-    /*Modal*/
-        /* Float cancel and delete buttons and add an equal width */
-    .cancelbtn, .deletebtn {
-       
-        width: 20%;
-        height: 30px;
-        margin-top: 15px;
-        font-size: 15px;
-        border-radius: 10px;
-      }
-      .deletebtn:hover{
-        background-color: #f00;
-      }
-      /* Add a color to the cancel button */
-      .cancelbtn {
-        background-color: #ccc;
-        color: black;
-      }
-      .cancelbtn:hover{
-        background-color: #0f0;
-      } 
-      /* Add a color to the delete button */
-      .deletebtn {
-        background-color: #f44336;
-      }
-    
-      
-      /* The Modal (background) */
-      .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        top: 150px;
-        width: 80%; /* Full width */
-      }
-      .modal-show{
-          display:block;
-      }
-      /* Modal Content/Box */
-      .modal-content {
-        background-color: #3f9;
-       margin: auto;
-        border: 5px solid #888;
-        border-radius: 5px;
-        width: 80%; /* Could be more or less, depending on screen size */
-        padding:10px
-      }
-      
-      /* Style the horizontal ruler */
-      hr {
-        border:1px solid #f1f1f1;
-        margin-bottom: 25px;
-      }
-      
-      /* The Modal Close Button (x) */
-      .close {
-        position: absolute;
-        right: 55px;
-        top: 1px;
-        font-size: 20px;
-        font-weight: bold;
-        color: #f1f1f1;
-      }
-      
-      .close:hover,
-      .close:focus {
-        color: #f44336;
-        cursor: pointer;
-      }
-      
-    /* Clear floats */
-      .clearfix::after {
-        content: "";
-        clear: both;
-        display: table;
-      } 
-    
 
 }
