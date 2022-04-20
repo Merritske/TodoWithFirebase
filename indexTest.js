@@ -24,7 +24,7 @@ const inputOptions = new Promise((resolve) => {
   })
 })
 let helpF = document.querySelector("#sweetbtn")
-helpF.addEventListener("click", gethelp => {
+helpF.addEventListener("click", gethelp=> {
   Swal.fire({
     customClass: {
       popup: "popup-class",
@@ -313,7 +313,7 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
     alles.style.color = "aqua"
     compleet.style.color = "#999"
     for (let y = 0; y < listItem.length; y++) {
-      //console.log(items[y])
+     // console.log(items[y])
       items[y].style.display = "flex"
     }
   })

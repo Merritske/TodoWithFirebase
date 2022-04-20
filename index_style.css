@@ -29,8 +29,9 @@ img {
   vertical-align: middle;
 }
 
-.active {
+.actief {
   background-color: #717171;
+  margin-left: 30px;
 }
 
 /* Fading animation */
@@ -94,7 +95,8 @@ img {
   height: 120px;
   letter-spacing: 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .topnavR {
@@ -378,9 +380,7 @@ p {
   font-size: 24px;
 }
 
-.actief {
-  margin-left: 30px;
-}
+
 
 .status {
   margin-right: 30px;
@@ -511,7 +511,7 @@ hr {
     left: 0px;
     right: 0px;
     height: auto;
-    width: 100%;
+width: 100%;
     z-index: -1;
     margin-top: 50px;
   }
@@ -524,8 +524,9 @@ hr {
     vertical-align: middle;
   }
 
-  .active {
+  .actief {
     background-color: #717171;
+    margin-left: 10px;
   }
 
   /* Fading animation */
@@ -590,6 +591,7 @@ hr {
     letter-spacing: 3px;
     display: flex;
     justify-content: space-around;
+    align-items: flex-start;
   }
 
   .topnavR {
@@ -602,11 +604,11 @@ hr {
 
   .help {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-right: 150px;
+  
   }
 
   /*hulp button*/
-  #sweetbtn:hover {
+  #sweetbtn:active {
     background-color: red;
     cursor: pointer;
     color: rgb(255, 160, 160);
@@ -622,7 +624,6 @@ hr {
     border: 3px solid red;
     font-weight: 900;
     font-size: 20px;
-    ;
     color: red;
   }
 
@@ -672,17 +673,17 @@ hr {
     height: 15px;
   }
 
-  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(1)>input[type=radio]:hover {
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(1)>input[type=radio]:active {
     width: 25px;
     height: 25px;
   }
 
-  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(2)>input[type=radio]:hover {
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(2)>input[type=radio]:active {
     width: 25px;
     height: 25px;
   }
 
-  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(3)>input[type=radio]:hover {
+  body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.inputRadio>label:nth-child(3)>input[type=radio]:active {
     width: 25px;
     height: 25px;
   }
@@ -709,6 +710,7 @@ hr {
     max-width: 80%;
     padding: 0px;
     position: relative;
+  
     margin: 0;
     margin-top: 0px;
     text-align: center;
@@ -777,7 +779,7 @@ hr {
 
   }
 
-  .check:hover {
+  .check:active {
     border-color: #fff;
     background-color: blue;
   }
@@ -797,7 +799,7 @@ hr {
     border-radius: 5px;
   }
 
-  .delBtn:hover {
+  .delBtn:active {
     background-color: red;
     cursor: pointer;
     box-shadow: 0 0 10px 5px whitesmoke;
@@ -831,7 +833,7 @@ hr {
 
   }
 
-  .todo-items:hover {
+  .todo-items:active {
     box-shadow: 0 0 5px 2px #333;
     height: 50px;
     background-color: #999;
@@ -869,12 +871,11 @@ hr {
     font-size: 12px;
   }
 
-  .actief {
-    margin-left: 30px;
-  }
+
 
   .status {
     margin-right: 10px;
+    display: flex;
   }
 
   .all,
@@ -883,9 +884,9 @@ hr {
     margin-left: 20px;
   }
 
-  .all:hover,
-  .completed:hover,
-  .itemsleft:hover {
+  .all:active,
+  .completed:active,
+  .itemsleft:active {
     color: aqua;
     cursor: pointer;
   }
@@ -902,7 +903,7 @@ hr {
     border-radius: 10px;
   }
 
-  .deletebtn:hover {
+  .deletebtn:active {
     background-color: #f00;
   }
 
@@ -912,7 +913,7 @@ hr {
     color: black;
   }
 
-  .cancelbtn:hover {
+  .cancelbtn:active {
     background-color: #0f0;
   }
 
@@ -966,7 +967,7 @@ hr {
     color: #f1f1f1;
   }
 
-  .close:hover,
+  .close:active,
   .close:focus {
     color: #f44336;
     cursor: pointer;
