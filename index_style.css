@@ -30,7 +30,7 @@ img {
 }
 
 .actief {
-  background-color: #717171;
+  
   margin-left: 30px;
 }
 
@@ -129,7 +129,6 @@ img {
   border: 5px solid red;
   font-weight: 900;
   font-size: 35px;
-  ;
   color: red;
 }
 
@@ -219,7 +218,6 @@ body>div.swal2-container.swal2-center.swal2-backdrop-show>div>div.swal2-radio.in
   margin: auto;
   margin-top: 55px;
   text-align: center;
-
 }
 
 
@@ -525,7 +523,7 @@ width: 100%;
   }
 
   .actief {
-    background-color: #717171;
+ 
     margin-left: 10px;
   }
 
@@ -604,11 +602,11 @@ width: 100%;
 
   .help {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  
+  margin-right: 30%;
   }
 
   /*hulp button*/
-  #sweetbtn:active {
+  #sweetbtn:hover, #sweetbtn:active {
     background-color: red;
     cursor: pointer;
     color: rgb(255, 160, 160);
@@ -617,7 +615,7 @@ width: 100%;
   #sweetbtn {
     position: relative;
     left: 50px;
-    top: 15px;
+    top: 0px;
     padding: 8px;
     background-color: rgba(240, 10, 10, 0.2);
     border-radius: 10px;
@@ -711,7 +709,7 @@ width: 100%;
     padding: 0px;
     position: relative;
   
-    margin: 0;
+    margin: auto;
     margin-top: 0px;
     text-align: center;
   }
@@ -833,7 +831,7 @@ width: 100%;
 
   }
 
-  .todo-items:active {
+ .todo-items:hover,   .todo-items:active{
     box-shadow: 0 0 5px 2px #333;
     height: 50px;
     background-color: #999;
@@ -846,12 +844,12 @@ width: 100%;
     padding-left: 15px;
     color: #eee;
     width: 100%;
-    height: 50px;
+    height: 30px;
 
   }
 
   p {
-    margin-top: 15px;
+    margin-top: 10px;
 
   }
 
