@@ -209,20 +209,20 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
 
 
   //zonnetje laten bewegen zoals zonnewijzer
-  let zon = document.querySelector(".zon")
-  let num = ["0px,0px", "5px,-30px", "10px,-60px", "20px,-90px", "30px,-120px", "40px,-150px", "60px,-200px", "100px,-280px", "160px,-330px", "230px, -360px", "310px,-380px", "390px,-395px", "470px,-400px", "550px,-395px", "620px,-380px", "680px,-360px", "730px,-330px", "780px,-290px", "820px,-250px", "870px,-200px ", "905px,-150px ", "925px,-100px ", "930px,-50px ", "935px,0px"]
-  //             0           1           2             3           4            5               6              7             8                 9              10              11                12              13              14            15             16           17            18              19                  20             21                22            23
+  let zon = document.querySelector(".theme")
+  let num = ["0px,0px", "2%,-5%", "4%,-10%", "6%,-18%", "8%,-25%", "10%,-40%", "12%,-50%", "14%,-60%", "18%,-73%", "23%, -80%", "30%,-88%", "39%,-95%", "47%,-98%", "54%,-95%", "62%,-88%", "68%,-80%", "73%,-73%", "78%,-60%", "82%,-50%", "87%,-40% ", "90%,-25% ", "96%,-18% ", "98%,-10%", "100%,0px"]
+  //             0           1           2             3           4            5               6              7             8                 9              10              11                12          13            14            15             16           17            18              19                  20             21                22            23
   let x = 0
 
   function getRealTime() {
-    let uur = new Date().getHours()
+    let uur = new Date().getSeconds()
     //document.getElementById('time').innerHTML = uur
     zon.style.transform = `translate(${num[x]})`
     x = uur
   }
   setInterval(function () {
     getRealTime()
-  }, 10000) //om de minuut de actuele minuten opvragen
+  }, 1000) //om de minuut de actuele minuten opvragen
 
   //updaten bij het laden van de pagina
   countLeft = count - countCompleted
