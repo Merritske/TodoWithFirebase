@@ -215,14 +215,14 @@ db.collection("TodoItems").onSnapshot((snapshot) => {
   let x = 0
 
   function getRealTime() {
-    let uur = new Date().getSeconds()
+    let uur = new Date().getHours()
     //document.getElementById('time').innerHTML = uur
     zon.style.transform = `translate(${num[x]})`
     x = uur
   }
   setInterval(function () {
     getRealTime()
-  }, 1000) //om de minuut de actuele minuten opvragen
+  }, 10000) //om de minuut de actuele minuten opvragen
 
   //updaten bij het laden van de pagina
   countLeft = count - countCompleted
