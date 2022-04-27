@@ -11,13 +11,7 @@ let count = 0
 
 
 
-//https://www.tutorialspoint.com/firebase/firebase_quick_guide.htm
-
-//https://www.javascripttutorial.net/javascript-fetch-api/
-
-
-
-//HELP FUNCTIE //echt bellen gaat nog niet
+//LOCALSTORAGE -> werkt nog niet
 const inputOptions = new Promise((resolve) => {
   resolve({
     '0470584694': 'An',
